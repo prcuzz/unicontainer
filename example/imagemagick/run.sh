@@ -1,0 +1,7 @@
+run_app_elfloader_kernel_image=../../../unikraft/run-app-elfloader/app-elfloader_qemu-x86_64
+run_app_elfloader_plain_kernel_image=../../../unikraft/run-app-elfloader/app-elfloader_qemu-x86_64_plain
+app_elfloader_kernel_image=../../../unikraft/app-elfloader/build/elfloader_qemu-x86_64
+
+#qemu-system-x86_64 -m 4G -nographic -nodefaults -display none -serial stdio -device isa-debug-exit -fsdev local,security_model=none,id=hvirtio0,path=$(pwd)/file-system/ -device virtio-9p-pci,fsdev=hvirtio0,mount_tag=fs0 -kernel ${app_elfloader_kernel_image} -cpu max -netdev tap,id=hnet0,vhost=off,script=/home/zzc/Desktop/zzc/unikraft/run-app-elfloader/setup/up,downscript=/home/zzc/Desktop/zzc/unikraft/run-app-elfloader/setup/down -device virtio-net-pci,netdev=hnet0,id=net0 -append "netdev.ipv4_addr=172.44.0.2 netdev.ipv4_gw_addr=172.44.0.1 netdev.ipv4_subnet_mask=255.255.255.0 --  /usr/bin/php -t /var/www/html -S 0.0.0.0:8080"
+
+qemu-system-x86_64 -m 4G -nographic -nodefaults -display none -serial stdio -device isa-debug-exit -fsdev local,security_model=none,id=hvirtio0,path=$(pwd)/file-system/ -device virtio-9p-pci,fsdev=hvirtio0,mount_tag=fs0 -kernel ${run_app_elfloader_plain_kernel_image} -cpu max -netdev tap,id=hnet0,vhost=off,script=/home/zzc/Desktop/zzc/unikraft/run-app-elfloader/setup/up,downscript=/home/zzc/Desktop/zzc/unikraft/run-app-elfloader/setup/down -device virtio-net-pci,netdev=hnet0,id=net0 -append "netdev.ipv4_addr=172.44.0.2 netdev.ipv4_gw_addr=172.44.0.1 netdev.ipv4_subnet_mask=255.255.255.0 --  /usr/bin/php -S 0.0.0.0:8080"
