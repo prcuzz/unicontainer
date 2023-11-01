@@ -1,0 +1,88 @@
+21a22
+> #include "linux/kvm_types.h"
+89a91,96
+> // ZZC
+> #define UNICONTAINER_EXEC 90	
+> #define DATA_LEN 30
+> #define DATA_LEN_1 500
+> #define ARGV_AND_ENVP_CNT 5
+> // ZZC-end
+9631a9639,9640
+> 	printk(KERN_INFO "ZZC: kvm_emulate_hypercall()\n");	// ZZC
+> 
+9713a9723,9795
+> 	// ZZC
+> 	case UNICONTAINER_EXEC: {
+> 		struct x86_exception exception; 
+> 		u64 addr;
+> 		u64 i = 0;
+> 		char filename[DATA_LEN];
+> 		char argv[ARGV_AND_ENVP_CNT][DATA_LEN];
+> 		char envp[ARGV_AND_ENVP_CNT][DATA_LEN];
+> 		char data[DATA_LEN_1];
+> 		unsigned long arg_start = current->mm->arg_start;
+> 		unsigned long arg_end = current->mm->arg_end;
+> 		// char tmch;
+> 
+> 		printk(KERN_INFO "ZZC: case UNICONTAINER_EXEC\n");
+> 		printk(KERN_INFO "ZZC: filename addr %lu\n", a0);
+> 		printk(KERN_INFO "ZZC: argv addr %lu\n", a1);
+> 		printk(KERN_INFO "ZZC: envp addr %lu\n", a2);
+> 		//a0_gpa = vcpu->arch.walk_mmu->gva_to_gpa(vcpu, vcpu->arch.walk_mmu, (gpa_t)a0, PFERR_USER_MASK, NULL);
+> 		//a0_gpa = kvm_mmu_gva_to_gpa_read(vcpu, a0, NULL);
+> 		//printk(KERN_INFO "ZZC: a0_gpa %llu\n", a0_gpa);
+> 		//kvm_get_guest(kvm, a0_gpa, val);
+> 		//kvm_vcpu_read_guest(vcpu, a0_gpa, data, 20);
+> 		kvm_read_guest_virt(vcpu, a0, filename, DATA_LEN, &exception);
+> 		printk(KERN_INFO "ZZC: filename %s\n", filename);
+> 
+> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){
+> 			kvm_read_guest_virt(vcpu, (gva_t)(((char **)a1) + i), &addr, 8, &exception);
+> 			printk(KERN_INFO "ZZC: addr %llu\n", addr);
+> 			if(addr){
+> 				kvm_read_guest_virt(vcpu, addr, argv[i], DATA_LEN, &exception);
+> 				printk(KERN_INFO "ZZC: argv[%llu] %s\n", i, argv[i]);
+> 			}
+> 			else{
+> 				break;
+> 			}
+> 		}
+> 
+> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){
+> 			kvm_read_guest_virt(vcpu, (gva_t)(((char **)a2) + i), &addr, 8, &exception);
+> 			printk(KERN_INFO "ZZC: addr %llu\n", addr);
+> 			if(addr){
+> 				kvm_read_guest_virt(vcpu, addr, envp[i], DATA_LEN, &exception);
+> 				printk(KERN_INFO "ZZC: envp[%llu] %s\n", i, envp[i]);
+> 			}
+> 			else{
+> 				break;
+> 			}
+> 		}
+> 
+> 		printk(KERN_INFO "ZZC: arg_start %lu\n", arg_start);
+> 		// printk(KERN_INFO "ZZC: arg_start[0] %s\n", (char *)arg_start);
+> 		if(copy_from_user(data, (void *)arg_start, DATA_LEN_1 -1)){
+> 			return -EFAULT;
+> 		}
+> 		printk(KERN_INFO "ZZC: arg_end %lu\n", arg_end);
+> 		printk(KERN_INFO "ZZC: data %s\n", data);
+> 		printk(KERN_INFO "ZZC: data[100] %c\n", data[100]);
+> 
+> 		i = 0;
+>    		printk(KERN_INFO "ZZC: Output arg is: ");
+>    		for(i = 0; i < arg_end - arg_start; i++){
+> 			if(data[i] == '\0'){
+> 				printk(KERN_INFO " ");
+> 			}
+> 			else {
+> 				printk(KERN_INFO "%c", data[i]);
+> 			}
+> 		}
+> 		printk(KERN_INFO "\n");
+> 
+> 		ret = 0;
+> 		break;
+> 	}
+9717a9800
+> 	// ZZC-end
