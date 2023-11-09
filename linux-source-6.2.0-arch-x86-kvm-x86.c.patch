@@ -1,16 +1,19 @@
 21a22
 > #include "linux/kvm_types.h"
-89a91,96
+62a64,65
+> // #include <string.h>
+> #include <linux/string.h>
+89a93,98
 > // ZZC
 > #define UNICONTAINER_EXEC 90	
 > #define DATA_LEN 30
 > #define DATA_LEN_1 500
 > #define ARGV_AND_ENVP_CNT 5
 > // ZZC-end
-9631a9639,9640
+9631a9641,9642
 > 	printk(KERN_INFO "ZZC: kvm_emulate_hypercall()\n");	// ZZC
 > 
-9713a9723,9795
+9713a9725,9824
 > 	// ZZC
 > 	case UNICONTAINER_EXEC: {
 > 		struct x86_exception exception; 
@@ -22,7 +25,12 @@
 > 		char data[DATA_LEN_1];
 > 		unsigned long arg_start = current->mm->arg_start;
 > 		unsigned long arg_end = current->mm->arg_end;
-> 		// char tmch;
+> 		struct file *fp;
+> 		long unsigned int ret_val;
+> 
+> 		char cmd_path[] = "/bin/sh";  
+> 		char *cmd_argv[] = {cmd_path, "-c", "/bin/ls / > /tmp/zzc-test", NULL};  
+> 		char *cmd_envp[] = {"HOME=/", "PATH=/sbin:/bin:/user/bin", NULL}; 
 > 
 > 		printk(KERN_INFO "ZZC: case UNICONTAINER_EXEC\n");
 > 		printk(KERN_INFO "ZZC: filename addr %lu\n", a0);
@@ -33,56 +41,76 @@
 > 		//printk(KERN_INFO "ZZC: a0_gpa %llu\n", a0_gpa);
 > 		//kvm_get_guest(kvm, a0_gpa, val);
 > 		//kvm_vcpu_read_guest(vcpu, a0_gpa, data, 20);
-> 		kvm_read_guest_virt(vcpu, a0, filename, DATA_LEN, &exception);
-> 		printk(KERN_INFO "ZZC: filename %s\n", filename);
+> 		kvm_read_guest_virt(vcpu, a0, filename, DATA_LEN, &exception);	// read first arg (binary file name) from VM
+> 		printk(KERN_INFO "ZZC: filename is %s\n", filename);
 > 
-> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){
+> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// read argv from VM one by one
 > 			kvm_read_guest_virt(vcpu, (gva_t)(((char **)a1) + i), &addr, 8, &exception);
-> 			printk(KERN_INFO "ZZC: addr %llu\n", addr);
+> 			printk(KERN_INFO "ZZC: addr is %llu\n", addr);
 > 			if(addr){
 > 				kvm_read_guest_virt(vcpu, addr, argv[i], DATA_LEN, &exception);
-> 				printk(KERN_INFO "ZZC: argv[%llu] %s\n", i, argv[i]);
+> 				printk(KERN_INFO "ZZC: argv[%llu] is %s\n", i, argv[i]);
 > 			}
 > 			else{
 > 				break;
 > 			}
 > 		}
 > 
-> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){
+> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// read envp from VM one by one
 > 			kvm_read_guest_virt(vcpu, (gva_t)(((char **)a2) + i), &addr, 8, &exception);
-> 			printk(KERN_INFO "ZZC: addr %llu\n", addr);
+> 			printk(KERN_INFO "ZZC: addr is %llu\n", addr);
 > 			if(addr){
 > 				kvm_read_guest_virt(vcpu, addr, envp[i], DATA_LEN, &exception);
-> 				printk(KERN_INFO "ZZC: envp[%llu] %s\n", i, envp[i]);
+> 				printk(KERN_INFO "ZZC: envp[%llu] is %s\n", i, envp[i]);
 > 			}
 > 			else{
 > 				break;
 > 			}
 > 		}
 > 
-> 		printk(KERN_INFO "ZZC: arg_start %lu\n", arg_start);
-> 		// printk(KERN_INFO "ZZC: arg_start[0] %s\n", (char *)arg_start);
+> 		printk(KERN_INFO "ZZC: arg_start is %lu\n", arg_start);
 > 		if(copy_from_user(data, (void *)arg_start, DATA_LEN_1 -1)){
 > 			return -EFAULT;
 > 		}
-> 		printk(KERN_INFO "ZZC: arg_end %lu\n", arg_end);
-> 		printk(KERN_INFO "ZZC: data %s\n", data);
-> 		printk(KERN_INFO "ZZC: data[100] %c\n", data[100]);
+> 		printk(KERN_INFO "ZZC: arg_end is %lu\n", arg_end);
+> 		// printk(KERN_INFO "ZZC: data is %s\n", data);
+> 		// printk(KERN_INFO "ZZC: data[100] %c\n", data[100]);
 > 
-> 		i = 0;
->    		printk(KERN_INFO "ZZC: Output arg is: ");
->    		for(i = 0; i < arg_end - arg_start; i++){
+> 		for(i = 0; i < arg_end - arg_start -1; i++){
 > 			if(data[i] == '\0'){
-> 				printk(KERN_INFO " ");
-> 			}
-> 			else {
-> 				printk(KERN_INFO "%c", data[i]);
+> 				data[i] = ' ';
 > 			}
 > 		}
-> 		printk(KERN_INFO "\n");
+> 
+>    		printk(KERN_INFO "ZZC: qemu cmd is %s\n", data);
+> 
+> 		strcpy(filename, "/bin/sh");
+> 		strcpy(argv[0], filename);
+> 		strcpy(argv[1], "-c");
+> 		strcpy(argv[2], "/bin/ls /");
+> 		strcat(argv[2], " > /tmp/zzc-test");
+> 		*((char **)argv + 3) = NULL;
+> 		*((char **)envp) = NULL;
+> 
+> 		ret_val = call_usermodehelper(cmd_path, cmd_argv, cmd_envp, UMH_WAIT_PROC);
+> 
+> 		// ret = call_usermodehelper(filename, (char **)argv, (char **)envp, UMH_WAIT_EXEC);
+> 		printk(KERN_INFO "ZZC: call_usermodehelper ret is %lu\n", ret_val);
+> 
+> 		fp = filp_open("/tmp/zzc-test", O_RDWR | O_CREAT, 0644);
+> 		if (IS_ERR(fp)){
+> 			printk(KERN_INFO "ZZC: create file error\n"); 
+> 			// return -1;
+> 		}
+> 		
+> 		ret_val = kernel_read(fp, data, DATA_LEN - 1, 0);
+> 		data[DATA_LEN - 1] = '\0';
+> 		printk(KERN_INFO "ZZC: kernel_read ret is %lu\n", ret_val);
+> 		printk(KERN_INFO "ZZC: read: %s\n", data);
+> 		
+> 		filp_close(fp, NULL);
 > 
 > 		ret = 0;
 > 		break;
-> 	}
-9717a9800
+> 	}	
 > 	// ZZC-end
