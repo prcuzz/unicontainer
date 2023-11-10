@@ -1,46 +1,43 @@
-21a22
+21a22,24
 > #include "linux/kvm_types.h"
-62a64,65
+> #include "linux/stddef.h"
+> #include "linux/types.h"
+62a66,67
 > // #include <string.h>
 > #include <linux/string.h>
-89a93,98
+89a95,100
 > // ZZC
 > #define UNICONTAINER_EXEC 90	
 > #define DATA_LEN 30
 > #define DATA_LEN_1 500
 > #define ARGV_AND_ENVP_CNT 5
 > // ZZC-end
-9631a9641,9642
+9631a9643,9644
 > 	printk(KERN_INFO "ZZC: kvm_emulate_hypercall()\n");	// ZZC
 > 
-9713a9725,9824
+9713a9727,9871
 > 	// ZZC
 > 	case UNICONTAINER_EXEC: {
 > 		struct x86_exception exception; 
 > 		u64 addr;
 > 		u64 i = 0;
 > 		char filename[DATA_LEN];
-> 		char argv[ARGV_AND_ENVP_CNT][DATA_LEN];
-> 		char envp[ARGV_AND_ENVP_CNT][DATA_LEN];
+> 		char* argv[ARGV_AND_ENVP_CNT] = {NULL, NULL, NULL, NULL, NULL};
+> 		char* envp[ARGV_AND_ENVP_CNT] = {NULL, NULL, NULL, NULL, NULL};
 > 		char data[DATA_LEN_1];
 > 		unsigned long arg_start = current->mm->arg_start;
 > 		unsigned long arg_end = current->mm->arg_end;
 > 		struct file *fp;
 > 		long unsigned int ret_val;
+> 		loff_t pos = 0;
 > 
-> 		char cmd_path[] = "/bin/sh";  
-> 		char *cmd_argv[] = {cmd_path, "-c", "/bin/ls / > /tmp/zzc-test", NULL};  
-> 		char *cmd_envp[] = {"HOME=/", "PATH=/sbin:/bin:/user/bin", NULL}; 
 > 
 > 		printk(KERN_INFO "ZZC: case UNICONTAINER_EXEC\n");
 > 		printk(KERN_INFO "ZZC: filename addr %lu\n", a0);
 > 		printk(KERN_INFO "ZZC: argv addr %lu\n", a1);
 > 		printk(KERN_INFO "ZZC: envp addr %lu\n", a2);
-> 		//a0_gpa = vcpu->arch.walk_mmu->gva_to_gpa(vcpu, vcpu->arch.walk_mmu, (gpa_t)a0, PFERR_USER_MASK, NULL);
-> 		//a0_gpa = kvm_mmu_gva_to_gpa_read(vcpu, a0, NULL);
-> 		//printk(KERN_INFO "ZZC: a0_gpa %llu\n", a0_gpa);
-> 		//kvm_get_guest(kvm, a0_gpa, val);
-> 		//kvm_vcpu_read_guest(vcpu, a0_gpa, data, 20);
+> 		
+> 		
 > 		kvm_read_guest_virt(vcpu, a0, filename, DATA_LEN, &exception);	// read first arg (binary file name) from VM
 > 		printk(KERN_INFO "ZZC: filename is %s\n", filename);
 > 
@@ -48,6 +45,14 @@
 > 			kvm_read_guest_virt(vcpu, (gva_t)(((char **)a1) + i), &addr, 8, &exception);
 > 			printk(KERN_INFO "ZZC: addr is %llu\n", addr);
 > 			if(addr){
+> 				if(argv[i] == NULL){
+> 					argv[i] = (char*)kmalloc(DATA_LEN, GFP_KERNEL);
+> 					if(argv[i] == NULL){
+> 						printk(KERN_INFO "ZZC: kmalloc() for argv fail.\n");
+> 						ret = 0;
+> 						goto out;
+> 					} 
+> 				}
 > 				kvm_read_guest_virt(vcpu, addr, argv[i], DATA_LEN, &exception);
 > 				printk(KERN_INFO "ZZC: argv[%llu] is %s\n", i, argv[i]);
 > 			}
@@ -60,6 +65,14 @@
 > 			kvm_read_guest_virt(vcpu, (gva_t)(((char **)a2) + i), &addr, 8, &exception);
 > 			printk(KERN_INFO "ZZC: addr is %llu\n", addr);
 > 			if(addr){
+> 				if(!envp[i]){
+> 					envp[i] = (char*)kmalloc(DATA_LEN, GFP_KERNEL);
+> 					if(envp[i] == NULL){
+> 						printk(KERN_INFO "ZZC: kmalloc() for envp fail.\n");
+> 						ret = 0;
+> 						goto out;
+> 					} 
+> 				}
 > 				kvm_read_guest_virt(vcpu, addr, envp[i], DATA_LEN, &exception);
 > 				printk(KERN_INFO "ZZC: envp[%llu] is %s\n", i, envp[i]);
 > 			}
@@ -69,14 +82,14 @@
 > 		}
 > 
 > 		printk(KERN_INFO "ZZC: arg_start is %lu\n", arg_start);
-> 		if(copy_from_user(data, (void *)arg_start, DATA_LEN_1 -1)){
+> 		if(copy_from_user(data, (void *)arg_start, DATA_LEN_1 -1)){	// get qemu cmd
 > 			return -EFAULT;
 > 		}
 > 		printk(KERN_INFO "ZZC: arg_end is %lu\n", arg_end);
 > 		// printk(KERN_INFO "ZZC: data is %s\n", data);
 > 		// printk(KERN_INFO "ZZC: data[100] %c\n", data[100]);
 > 
-> 		for(i = 0; i < arg_end - arg_start -1; i++){
+> 		for(i = 0; i < arg_end - arg_start -1; i++){	// remove '\0' in qemu cmd
 > 			if(data[i] == '\0'){
 > 				data[i] = ' ';
 > 			}
@@ -84,31 +97,65 @@
 > 
 >    		printk(KERN_INFO "ZZC: qemu cmd is %s\n", data);
 > 
-> 		strcpy(filename, "/bin/sh");
-> 		strcpy(argv[0], filename);
+> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release argv
+> 			if(argv[i]){
+> 				kfree(argv[i]);
+> 			}
+> 		}
+> 
+> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release envp
+> 			if(envp[i]){
+> 				kfree(envp[i]);
+> 			}
+> 		}
+> 
+> 		argv[0] = kmalloc(strlen("/bin/sh") + 1, GFP_KERNEL);
+> 		strcpy(argv[0], "/bin/sh");
+> 		argv[1] = kmalloc(strlen("-c") + 1, GFP_KERNEL);
 > 		strcpy(argv[1], "-c");
-> 		strcpy(argv[2], "/bin/ls /");
-> 		strcat(argv[2], " > /tmp/zzc-test");
-> 		*((char **)argv + 3) = NULL;
-> 		*((char **)envp) = NULL;
+> 		argv[2] = kmalloc(DATA_LEN_1, GFP_KERNEL);
+> 		// strcpy(argv[2], data);
+> 		strcpy(argv[2], "/bin/ls");
+> 		strcat(argv[2], " > /tmp/zzc-test");	// the whole cmd is "/bin/sh -c ${qemu_cmd} > /tmp/zzc-test"
+> 		// *((char **)argv + 3) = NULL;
+> 		// *((char **)envp) = NULL;
 > 
-> 		ret_val = call_usermodehelper(cmd_path, cmd_argv, cmd_envp, UMH_WAIT_PROC);
+> 		printk(KERN_INFO "ZZC: argv[0] is %s\n", argv[0]);
+> 		printk(KERN_INFO "ZZC: argv[1] is %s\n", argv[1]);
+> 		printk(KERN_INFO "ZZC: argv[2] is %s\n", argv[2]);
 > 
-> 		// ret = call_usermodehelper(filename, (char **)argv, (char **)envp, UMH_WAIT_EXEC);
-> 		printk(KERN_INFO "ZZC: call_usermodehelper ret is %lu\n", ret_val);
 > 
-> 		fp = filp_open("/tmp/zzc-test", O_RDWR | O_CREAT, 0644);
+> 		// ret_val = call_usermodehelper(cmd_path, cmd_argv, cmd_envp, UMH_WAIT_PROC);
+> 
+> 		ret_val = call_usermodehelper(argv[0], argv, envp, UMH_WAIT_EXEC);	// something wrong here
+> 		printk(KERN_INFO "ZZC: call_usermodehelper ret_val is %lu\n", ret_val);
+> 
+> 		fp = filp_open("/tmp/zzc-test", O_RDWR | O_CREAT, 0777);
 > 		if (IS_ERR(fp)){
-> 			printk(KERN_INFO "ZZC: create file error\n"); 
+> 			printk(KERN_INFO "ZZC: filp_open() fail\n");
+> 			ret = 0;
+> 			goto out;
 > 			// return -1;
 > 		}
 > 		
-> 		ret_val = kernel_read(fp, data, DATA_LEN - 1, 0);
-> 		data[DATA_LEN - 1] = '\0';
-> 		printk(KERN_INFO "ZZC: kernel_read ret is %lu\n", ret_val);
+> 		ret_val = kernel_read(fp, (void*)data, DATA_LEN_1 - 1, &pos);
+> 		data[DATA_LEN_1 - 1] = '\0';
+> 		printk(KERN_INFO "ZZC: kernel_read() ret_val is %lu\n", ret_val);
 > 		printk(KERN_INFO "ZZC: read: %s\n", data);
 > 		
 > 		filp_close(fp, NULL);
+> 
+> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release argv
+> 			if(argv[i]){
+> 				kfree(argv[i]);
+> 			}
+> 		}
+> 
+> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release envp
+> 			if(envp[i]){
+> 				kfree(envp[i]);
+> 			}
+> 		}
 > 
 > 		ret = 0;
 > 		break;
