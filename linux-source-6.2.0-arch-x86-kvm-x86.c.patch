@@ -5,17 +5,20 @@
 62a66,67
 > // #include <string.h>
 > #include <linux/string.h>
-89a95,100
+84a90,91
+> #include <linux/errno.h>
+> 
+89a97,102
 > // ZZC
 > #define UNICONTAINER_EXEC 90	
 > #define DATA_LEN 30
 > #define DATA_LEN_1 500
 > #define ARGV_AND_ENVP_CNT 5
 > // ZZC-end
-9631a9643,9644
+9631a9645,9646
 > 	printk(KERN_INFO "ZZC: kvm_emulate_hypercall()\n");	// ZZC
 > 
-9713a9727,9871
+9713a9729,9875
 > 	// ZZC
 > 	case UNICONTAINER_EXEC: {
 > 		struct x86_exception exception; 
@@ -28,7 +31,7 @@
 > 		unsigned long arg_start = current->mm->arg_start;
 > 		unsigned long arg_end = current->mm->arg_end;
 > 		struct file *fp;
-> 		long unsigned int ret_val;
+> 		int ret_val;
 > 		loff_t pos = 0;
 > 
 > 
@@ -87,7 +90,6 @@
 > 		}
 > 		printk(KERN_INFO "ZZC: arg_end is %lu\n", arg_end);
 > 		// printk(KERN_INFO "ZZC: data is %s\n", data);
-> 		// printk(KERN_INFO "ZZC: data[100] %c\n", data[100]);
 > 
 > 		for(i = 0; i < arg_end - arg_start -1; i++){	// remove '\0' in qemu cmd
 > 			if(data[i] == '\0'){
@@ -100,12 +102,14 @@
 > 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release argv
 > 			if(argv[i]){
 > 				kfree(argv[i]);
+> 				argv[i] = NULL;
 > 			}
 > 		}
 > 
 > 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release envp
 > 			if(envp[i]){
 > 				kfree(envp[i]);
+> 				envp[i] = NULL;
 > 			}
 > 		}
 > 
@@ -117,43 +121,44 @@
 > 		// strcpy(argv[2], data);
 > 		strcpy(argv[2], "/bin/ls");
 > 		strcat(argv[2], " > /tmp/zzc-test");	// the whole cmd is "/bin/sh -c ${qemu_cmd} > /tmp/zzc-test"
-> 		// *((char **)argv + 3) = NULL;
-> 		// *((char **)envp) = NULL;
+> 
 > 
 > 		printk(KERN_INFO "ZZC: argv[0] is %s\n", argv[0]);
 > 		printk(KERN_INFO "ZZC: argv[1] is %s\n", argv[1]);
 > 		printk(KERN_INFO "ZZC: argv[2] is %s\n", argv[2]);
 > 
 > 
-> 		// ret_val = call_usermodehelper(cmd_path, cmd_argv, cmd_envp, UMH_WAIT_PROC);
+> 		ret_val = call_usermodehelper(argv[0], argv, envp, UMH_WAIT_PROC);
+> 		printk(KERN_INFO "ZZC: call_usermodehelper ret_val is %d\n", ret_val);
 > 
-> 		ret_val = call_usermodehelper(argv[0], argv, envp, UMH_WAIT_EXEC);	// something wrong here
-> 		printk(KERN_INFO "ZZC: call_usermodehelper ret_val is %lu\n", ret_val);
-> 
-> 		fp = filp_open("/tmp/zzc-test", O_RDWR | O_CREAT, 0777);
+> 		fp = filp_open("/tmp/zzc-test", O_RDONLY, 0);	// open call_usermodehelper() output file
 > 		if (IS_ERR(fp)){
 > 			printk(KERN_INFO "ZZC: filp_open() fail\n");
 > 			ret = 0;
-> 			goto out;
+> 			goto zzc_out;
 > 			// return -1;
 > 		}
 > 		
-> 		ret_val = kernel_read(fp, (void*)data, DATA_LEN_1 - 1, &pos);
-> 		data[DATA_LEN_1 - 1] = '\0';
-> 		printk(KERN_INFO "ZZC: kernel_read() ret_val is %lu\n", ret_val);
-> 		printk(KERN_INFO "ZZC: read: %s\n", data);
+> 		pos	= 0;
+> 		ret_val = kernel_read(fp, (void*)data, sizeof(data), &pos);	// read call_usermodehelper() output file
+> 		if(ret_val >= 0) data[ret_val] = '\0';
+> 		printk(KERN_INFO "ZZC: kernel_read() ret_val is %d\n", ret_val);
+> 		printk(KERN_INFO "ZZC: data read from kernel_read() is %s\n", data);
 > 		
 > 		filp_close(fp, NULL);
 > 
+> zzc_out:
 > 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release argv
 > 			if(argv[i]){
 > 				kfree(argv[i]);
+> 				argv[i] = NULL;
 > 			}
 > 		}
 > 
 > 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release envp
 > 			if(envp[i]){
 > 				kfree(envp[i]);
+> 				envp[i] = NULL;
 > 			}
 > 		}
 > 
