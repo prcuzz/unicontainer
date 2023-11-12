@@ -1,24 +1,25 @@
-21a22,24
+21a22,25
+> #include "linux/gfp_types.h"
 > #include "linux/kvm_types.h"
 > #include "linux/stddef.h"
 > #include "linux/types.h"
-62a66,67
+62a67,68
 > // #include <string.h>
 > #include <linux/string.h>
-84a90,91
+84a91,92
 > #include <linux/errno.h>
 > 
-89a97,102
+89a98,103
 > // ZZC
 > #define UNICONTAINER_EXEC 90	
 > #define DATA_LEN 30
 > #define DATA_LEN_1 500
 > #define ARGV_AND_ENVP_CNT 5
 > // ZZC-end
-9631a9645,9646
+9631a9646,9647
 > 	printk(KERN_INFO "ZZC: kvm_emulate_hypercall()\n");	// ZZC
 > 
-9713a9729,9902
+9713a9730,9908
 > 	// ZZC
 > 	case UNICONTAINER_EXEC: {
 > 		struct x86_exception exception; 
@@ -119,10 +120,13 @@
 > 		printk(KERN_INFO "ZZC: tmp_2 is %s\n", tmp_2);
 > 		printk(KERN_INFO "ZZC: strlen(tmp_1) is %lu\n", strlen(tmp_1));
 > 		printk(KERN_INFO "ZZC: strlen(data) is %lu\n", strlen(data));
-> 		strncpy(argv[2], data, strlen(data) - strlen(tmp_1));	// copy the part which is before the append arg [something wrong here!!]
+> 		kfree(argv[2]);
+> 		argv[2] = kmalloc(DATA_LEN_1, GFP_KERNEL);		// Re-allocate memory for argv[2]
+> 		strncpy(argv[2], data, strlen(data) - strlen(tmp_1));		// copy the part which is before the append arg
 > 		strcat(argv[2], tmp_0);					// copy the new append arg
 > 		strcat(argv[2], tmp_2);					// copy the part which is after the append arg
 > 		printk(KERN_INFO "ZZC: the new qemu cmd is %s\n", argv[2]);
+> 		strcpy(data, argv[2]);
 > 
 > 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release argv
 > 			if(argv[i]){
@@ -143,9 +147,11 @@
 > 		argv[1] = kmalloc(strlen("-c") + 1, GFP_KERNEL);
 > 		strcpy(argv[1], "-c");
 > 		argv[2] = kmalloc(DATA_LEN_1, GFP_KERNEL);
-> 		// strcpy(argv[2], data);
-> 		strcpy(argv[2], "/bin/ls");
-> 		strcat(argv[2], " > /tmp/zzc-test");	// the whole cmd is "/bin/sh -c ${qemu_cmd} > /tmp/zzc-test"
+> 		strcpy(argv[2], "\'");
+> 		strcat(argv[2], data);
+> 		// strcpy(argv[2], "/bin/ls");
+> 		strcat(argv[2], " > /tmp/zzc-test");	// the whole cmd is [/bin/sh -c '${qemu_cmd} > /tmp/zzc-test']
+> 		strcat(argv[2], "\'");
 > 
 > 
 > 		printk(KERN_INFO "ZZC: argv[0] is %s\n", argv[0]);
@@ -153,7 +159,7 @@
 > 		printk(KERN_INFO "ZZC: argv[2] is %s\n", argv[2]);
 > 
 > 
-> 		ret_val = call_usermodehelper(argv[0], argv, envp, UMH_WAIT_PROC);
+> 		ret_val = call_usermodehelper(argv[0], argv, envp, UMH_WAIT_PROC);	// nothing written into /tmp/zzc-test
 > 		printk(KERN_INFO "ZZC: call_usermodehelper ret_val is %d\n", ret_val);
 > 
 > 		fp = filp_open("/tmp/zzc-test", O_RDONLY, 0);	// open call_usermodehelper() output file
