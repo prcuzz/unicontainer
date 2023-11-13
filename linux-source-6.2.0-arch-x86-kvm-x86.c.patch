@@ -19,7 +19,7 @@
 9631a9646,9647
 > 	printk(KERN_INFO "ZZC: kvm_emulate_hypercall()\n");	// ZZC
 > 
-9713a9730,9908
+9713a9730,9935
 > 	// ZZC
 > 	case UNICONTAINER_EXEC: {
 > 		struct x86_exception exception; 
@@ -32,15 +32,22 @@
 > 		char *tmp_0, *tmp_1, *tmp_2;
 > 		unsigned long arg_start = current->mm->arg_start;
 > 		unsigned long arg_end = current->mm->arg_end;
-> 		struct file *fp;
+> 		struct file *fp = NULL;
 > 		int ret_val;
 > 		loff_t pos = 0;
+> 		char* ret_context = NULL;
 > 
 > 
 > 		printk(KERN_INFO "ZZC: case UNICONTAINER_EXEC\n");
 > 		printk(KERN_INFO "ZZC: filename addr %lu\n", a0);
 > 		printk(KERN_INFO "ZZC: argv addr %lu\n", a1);
 > 		printk(KERN_INFO "ZZC: envp addr %lu\n", a2);
+> 		printk(KERN_INFO "ZZC: ret_context addr %lu\n", a3);
+> 
+> 		ret_context = kmalloc(DATA_LEN_1, GFP_KERNEL);		// allocate memory for ret_context
+> 		if (ret_context == NULL) {
+> 			goto zzc_out;
+> 		}
 > 		
 > 		
 > 		kvm_read_guest_virt(vcpu, a0, filename, DATA_LEN, &exception);	// read first arg (binary file name) from VM
@@ -101,7 +108,7 @@
 > 
 >    		printk(KERN_INFO "ZZC: qemu cmd is %s\n", data);	// print qemu cmd
 > 
-> 		// TODO: Merge argv and add it to the qemu cmd(argv[2])
+> 		// Merge argv and add it to the qemu cmd(argv[2])
 > 		tmp_0 = kmalloc(DATA_LEN_1, GFP_KERNEL);
 > 		strcpy(tmp_0, "\"");
 > 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){
@@ -147,11 +154,12 @@
 > 		argv[1] = kmalloc(strlen("-c") + 1, GFP_KERNEL);
 > 		strcpy(argv[1], "-c");
 > 		argv[2] = kmalloc(DATA_LEN_1, GFP_KERNEL);
-> 		strcpy(argv[2], "\'");
-> 		strcat(argv[2], data);
+> 		// strcpy(argv[2], "\'");
+> 		// strcat(argv[2], data);
+> 		strcpy(argv[2], data);
 > 		// strcpy(argv[2], "/bin/ls");
 > 		strcat(argv[2], " > /tmp/zzc-test");	// the whole cmd is [/bin/sh -c '${qemu_cmd} > /tmp/zzc-test']
-> 		strcat(argv[2], "\'");
+> 		// strcat(argv[2], "\'");
 > 
 > 
 > 		printk(KERN_INFO "ZZC: argv[0] is %s\n", argv[0]);
@@ -159,7 +167,7 @@
 > 		printk(KERN_INFO "ZZC: argv[2] is %s\n", argv[2]);
 > 
 > 
-> 		ret_val = call_usermodehelper(argv[0], argv, envp, UMH_WAIT_PROC);	// nothing written into /tmp/zzc-test
+> 		ret_val = call_usermodehelper(argv[0], argv, envp, UMH_WAIT_PROC);
 > 		printk(KERN_INFO "ZZC: call_usermodehelper ret_val is %d\n", ret_val);
 > 
 > 		fp = filp_open("/tmp/zzc-test", O_RDONLY, 0);	// open call_usermodehelper() output file
@@ -171,14 +179,26 @@
 > 		}
 > 		
 > 		pos	= 0;
-> 		ret_val = kernel_read(fp, (void*)data, sizeof(data), &pos);	// read call_usermodehelper() output file
-> 		if(ret_val >= 0) data[ret_val] = '\0';
+> 		ret_val = kernel_read(fp, (void*)ret_context, DATA_LEN_1, &pos);	// read call_usermodehelper() output file
+> 		if(ret_val >= 0) ret_context[ret_val - 1] = '\0';
 > 		printk(KERN_INFO "ZZC: kernel_read() ret_val is %d\n", ret_val);
-> 		printk(KERN_INFO "ZZC: data read from kernel_read() is %s\n", data);
-> 		
-> 		filp_close(fp, NULL);
+> 		printk(KERN_INFO "ZZC: data read from kernel_read() is %s\n", ret_context);
 > 
+> 		// TODO: return the output of the secondary container to the primary container
+> 		// a3 is gva, turn it to hva, and use copy_to_user(or other function?) to convey information
+> 		ret_val = kvm_write_guest_virt_system(vcpu, a3, ret_context, DATA_LEN_1, &exception);
+> 		printk(KERN_INFO "ZZC: ret_val from kvm_write_guest_virt_system() is %d\n", ret_val);
+> 		if (ret_val < 0) {
+> 			printk(KERN_INFO "ZZC: kvm_write_guest_virt_system() fail\n");
+> 			goto zzc_out;
+> 		}
+> 		// copy_to_user(?, ret_context, DATA_LEN_1);
+> 		
 > zzc_out:
+> 		if(fp){
+> 			filp_close(fp, NULL);
+> 		}
+> 
 > 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release argv
 > 			if(argv[i]){
 > 				kfree(argv[i]);
@@ -193,7 +213,14 @@
 > 			}
 > 		}
 > 
-> 		kfree(tmp_0);
+> 		if (tmp_0) {
+> 			kfree(tmp_0);
+> 		}
+> 
+> 		if (ret_context) {
+> 			kfree(ret_context);
+> 		}
+> 		
 > 
 > 		ret = 0;
 > 		break;
