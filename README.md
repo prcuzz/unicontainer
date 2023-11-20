@@ -8,7 +8,7 @@
 
 ## 定制unikernel
 
-
+TODO：用目标程序需要的 syscall 与 unikraft 每个 lib 中的 exportsyms.uk 做比较，输出后者全包含前者的最小集合。
 
 ## 跨虚拟机的容器通信
 
