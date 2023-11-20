@@ -1,2 +1,8 @@
-**/file-system/
+# 忽略所有镜像的打包文件
 *.tar
+
+# 忽略所有file-system文件夹（东西太多了，上传费时）；但是example/test/file-system中的C代码文件不可以被忽略
+file-system
+!/example/test/file-system
+/example/test/file-system/*
+!example/test/file-system/*.c
