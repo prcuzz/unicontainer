@@ -4,14 +4,15 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#define STACK_SIZE 16384
 
-void* thread_func(void* arg) {
+int thread_func(void* arg) {
     printf("Executing child process\n");
-    return NULL;
+    return 0;
 }
 
 int main(int argc, char** argv) {
-    void* stack = malloc(1024*1024); // 为子线程分配堆栈空间
+    void* stack = malloc(STACK_SIZE*STACK_SIZE); // 为子线程分配堆栈空间
 
     printf("Parent process waiting for child...\n");
 
@@ -23,7 +24,7 @@ int main(int argc, char** argv) {
     // int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM | CLONE_SETTLS;
     int flags = CLONE_VM | CLONE_VFORK | CLONE_FILES | CLONE_FS;
     // int flags = CLONE_VM | CLONE_FILES | CLONE_FS;
-    pid_t pid = clone(thread_func, stack+1024*1024, flags, NULL); // 创建子线程
+    pid_t pid = clone(thread_func, stack+STACK_SIZE*STACK_SIZE, flags, NULL); // 创建子线程
 
     if (pid == -1) {
         perror("clone");
