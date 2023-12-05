@@ -10,9 +10,9 @@ void* thread_func(void* arg) {
 }
 
 int thread_func1() {
-    char *argv[] = { "/bin/touch", "/test.txt", NULL };
+    char *argv[] = { "/bin/ls", "/", NULL };
     char *envp[] = { "PATH=/bin", NULL };
-    execve("/bin/touch", argv, envp);
+    execve("/bin/ls", argv, envp);
     return 0;
 }
 
@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
         exit(EXIT_FAILURE);
     }
     
-    int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM | CLONE_SETTLS;
+    int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM | CLONE_SETTLS | CLONE_VFORK;
     pid_t pid = clone(thread_func1, stack+1024*1024, flags, NULL); // 创建子线程
 
     if (pid == -1) {
