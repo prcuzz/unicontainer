@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sched.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
 
 void* thread_func(void* arg) {
     printf("Child thread started\n");
@@ -23,7 +26,8 @@ int main(int argc, char** argv) {
         exit(EXIT_FAILURE);
     }
     
-    int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM | CLONE_SETTLS | CLONE_VFORK;
+    // int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM | CLONE_SETTLS | CLONE_VFORK;
+    int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SETTLS | CLONE_VFORK | SIGCHLD;
     pid_t pid = clone(thread_func1, stack+1024*1024, flags, NULL); // 创建子线程
 
     if (pid == -1) {
