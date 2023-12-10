@@ -26,8 +26,11 @@ int main(int argc, char** argv) {
         exit(EXIT_FAILURE);
     }
     
+    printf("Parent thread waiting for child...\n");
+
     // int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD | CLONE_SYSVSEM | CLONE_SETTLS | CLONE_VFORK;
-    int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SETTLS | CLONE_VFORK | SIGCHLD;
+    // int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SETTLS | CLONE_VFORK | SIGCHLD;
+    int flags = CLONE_VM | CLONE_VFORK | SIGCHLD;
     pid_t pid = clone(thread_func1, stack+1024*1024, flags, NULL); // 创建子线程
 
     if (pid == -1) {
@@ -35,7 +38,6 @@ int main(int argc, char** argv) {
         exit(EXIT_FAILURE);
     }
 
-    printf("Parent thread waiting for child...\n");
     waitpid(pid, NULL, 0); // 等待子线程结束
 
     printf("Child thread finished\n");
