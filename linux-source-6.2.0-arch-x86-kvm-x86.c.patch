@@ -4,8 +4,8 @@
 > #include "linux/stddef.h"
 > #include "linux/types.h"
 62a67,68
-> // #include <string.h>
 > #include <linux/string.h>
+> #include <linux/time.h>
 84a91,92
 > #include <linux/errno.h>
 > 
@@ -13,13 +13,13 @@
 > // ZZC
 > #define UNICONTAINER_EXEC 90	
 > #define DATA_LEN 30
-> #define DATA_LEN_1 500
+> #define DATA_LEN_1 900
 > #define ARGV_AND_ENVP_CNT 5
 > // ZZC-end
 9631a9646,9647
 > 	printk(KERN_INFO "ZZC: kvm_emulate_hypercall()\n");	// ZZC
 > 
-9713a9730,9935
+9713a9730,9966
 > 	// ZZC
 > 	case UNICONTAINER_EXEC: {
 > 		struct x86_exception exception; 
@@ -28,8 +28,8 @@
 > 		char filename[DATA_LEN];
 > 		char* argv[ARGV_AND_ENVP_CNT] = {NULL, NULL, NULL, NULL, NULL};
 > 		char* envp[ARGV_AND_ENVP_CNT] = {NULL, NULL, NULL, NULL, NULL};
-> 		char data[DATA_LEN_1];
-> 		char *tmp_0, *tmp_1, *tmp_2;
+> 		char* data = NULL;
+> 		char *tmp_0, *tmp_1;
 > 		unsigned long arg_start = current->mm->arg_start;
 > 		unsigned long arg_end = current->mm->arg_end;
 > 		struct file *fp = NULL;
@@ -37,6 +37,7 @@
 > 		loff_t pos = 0;
 > 		char* ret_context = NULL;
 > 
+> 		printk(KERN_INFO "ZZC: The time now is %llu\n", ktime_get());
 > 
 > 		printk(KERN_INFO "ZZC: case UNICONTAINER_EXEC\n");
 > 		printk(KERN_INFO "ZZC: filename addr %lu\n", a0);
@@ -44,13 +45,18 @@
 > 		printk(KERN_INFO "ZZC: envp addr %lu\n", a2);
 > 		printk(KERN_INFO "ZZC: ret_context addr %lu\n", a3);
 > 
-> 		ret_context = kmalloc(DATA_LEN_1, GFP_KERNEL);		// allocate memory for ret_context
+> 		ret_context = kmalloc(DATA_LEN_1, GFP_KERNEL);		// 为 ret_context 分配内存
 > 		if (ret_context == NULL) {
+> 			goto zzc_out;
+> 		}
+> 
+> 		data = kmalloc(DATA_LEN_1, GFP_KERNEL);		// 为 data 分配内存
+> 		if (data == NULL) {
 > 			goto zzc_out;
 > 		}
 > 		
 > 		
-> 		kvm_read_guest_virt(vcpu, a0, filename, DATA_LEN, &exception);	// read first arg (binary file name) from VM
+> 		kvm_read_guest_virt(vcpu, a0, filename, DATA_LEN, &exception);	// 从 VM 中读取第一个参数（filename）
 > 		printk(KERN_INFO "ZZC: filename is %s\n", filename);
 > 
 > 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// read argv from VM one by one
@@ -65,7 +71,7 @@
 > 						goto zzc_out;
 > 					} 
 > 				}
-> 				kvm_read_guest_virt(vcpu, addr, argv[i], DATA_LEN, &exception);
+> 				kvm_read_guest_virt(vcpu, addr, argv[i], DATA_LEN, &exception);	// 把 argv 从虚拟机中挨个读出来
 > 				printk(KERN_INFO "ZZC: argv[%llu] is %s\n", i, argv[i]);
 > 			}
 > 			else{
@@ -85,7 +91,7 @@
 > 						goto zzc_out;
 > 					} 
 > 				}
-> 				kvm_read_guest_virt(vcpu, addr, envp[i], DATA_LEN, &exception);
+> 				kvm_read_guest_virt(vcpu, addr, envp[i], DATA_LEN, &exception);	// 把 envp 从虚拟机中挨个读出来
 > 				printk(KERN_INFO "ZZC: envp[%llu] is %s\n", i, envp[i]);
 > 			}
 > 			else{
@@ -93,22 +99,14 @@
 > 			}
 > 		}
 > 
+> 		// 获得 qemu cmd；这里的参数（data）中没有引号，但是以\0做了分割，也就是说，-append后面的参数是以空格相连的，不同参数之间以\0相连
 > 		printk(KERN_INFO "ZZC: arg_start is %lu\n", arg_start);
-> 		if(copy_from_user(data, (void *)arg_start, DATA_LEN_1 -1)){	// get qemu cmd
+> 		if(copy_from_user(data, (void *)arg_start, DATA_LEN_1 - 1)){
 > 			return -EFAULT;
 > 		}
 > 		printk(KERN_INFO "ZZC: arg_end is %lu\n", arg_end);
-> 		// printk(KERN_INFO "ZZC: data is %s\n", data);
 > 
-> 		for(i = 0; i < arg_end - arg_start -1; i++){	// remove '\0' in qemu cmd
-> 			if(data[i] == '\0'){
-> 				data[i] = ' ';
-> 			}
-> 		}
-> 
->    		printk(KERN_INFO "ZZC: qemu cmd is %s\n", data);	// print qemu cmd
-> 
-> 		// Merge argv and add it to the qemu cmd(argv[2])
+> 		// 把 argv 合并成一个字符串，存在 tmp_0 中
 > 		tmp_0 = kmalloc(DATA_LEN_1, GFP_KERNEL);
 > 		strcpy(tmp_0, "\"");
 > 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){
@@ -119,23 +117,44 @@
 > 		}
 > 		strcat(tmp_0, "\"");
 > 		printk(KERN_INFO "ZZC: merged argv is %s\n", tmp_0);
-> 		tmp_1 = strstr(data, "append");		// tmp_1 points to "a" in "append" now
-> 		printk(KERN_INFO "ZZC: tmp_1 is %s\n", tmp_1);
-> 		tmp_1 = tmp_1 + sizeof("append");	// tmp_1 points to the character after "append " now 
-> 		printk(KERN_INFO "ZZC: tmp_1 is %s\n", tmp_1);
-> 		tmp_2 = strstr(tmp_1, " ");			// the old append arg is between tmp_1 and tmp_2 now
-> 		printk(KERN_INFO "ZZC: tmp_2 is %s\n", tmp_2);
-> 		printk(KERN_INFO "ZZC: strlen(tmp_1) is %lu\n", strlen(tmp_1));
-> 		printk(KERN_INFO "ZZC: strlen(data) is %lu\n", strlen(data));
-> 		kfree(argv[2]);
-> 		argv[2] = kmalloc(DATA_LEN_1, GFP_KERNEL);		// Re-allocate memory for argv[2]
-> 		strncpy(argv[2], data, strlen(data) - strlen(tmp_1));		// copy the part which is before the append arg
-> 		strcat(argv[2], tmp_0);					// copy the new append arg
-> 		strcat(argv[2], tmp_2);					// copy the part which is after the append arg
-> 		printk(KERN_INFO "ZZC: the new qemu cmd is %s\n", argv[2]);
-> 		strcpy(data, argv[2]);
 > 
-> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// release argv
+> 		// 找到 -append 的参数，然后修改它
+> 		tmp_1 = data;
+> 		while (strcmp(tmp_1, "-append") != 0) {
+> 			printk(KERN_INFO "ZZC: tmp_1 is %s\n", tmp_1);
+> 			tmp_1 = tmp_1 + strlen(tmp_1) + 1;
+> 		}
+> 		tmp_1 = tmp_1 + strlen(tmp_1) + 1;	// 现在 tmp_1 指向 -append 的参数字符串
+> 		memset(tmp_1, ' ', strlen(tmp_1));	// 把 -append 的参数字符串用空格填满
+> 		strcpy(tmp_1, tmp_0);		// 更改 -append 的参数
+> 
+> 		// 把整个 qemu cmd 的 \0 都去掉
+> 		for(i = 0; i < arg_end - arg_start - 1; i++){	
+> 			if(data[i] == '\0'){
+> 				data[i] = ' ';
+> 				// data[i] = '+';	// for debug
+> 			}
+> 		}
+> 
+>    		printk(KERN_INFO "ZZC: the new qemu cmd is %s\n", data);	// 打印新的 qemu cmd
+> 
+> 		// tmp_1 = strstr(data, "append");		// tmp_1 points to "a" in "append" now
+> 		// printk(KERN_INFO "ZZC: tmp_1 is %s\n", tmp_1);
+> 		// tmp_1 = tmp_1 + sizeof("append");	// tmp_1 points to the character after "append " now
+> 		// printk(KERN_INFO "ZZC: tmp_1 is %s\n", tmp_1);
+> 		// tmp_2 = strstr(tmp_1, " ");			// the old append arg is between tmp_1 and tmp_2 now
+> 		// printk(KERN_INFO "ZZC: tmp_2 is %s\n", tmp_2);
+> 		// printk(KERN_INFO "ZZC: strlen(tmp_1) is %lu\n", strlen(tmp_1));
+> 		// printk(KERN_INFO "ZZC: strlen(data) is %lu\n", strlen(data));
+> 		// kfree(argv[2]);
+> 		// argv[2] = kmalloc(DATA_LEN_1, GFP_KERNEL);		// Re-allocate memory for argv[2]
+> 		// strncpy(argv[2], data, strlen(data) - strlen(tmp_1));		// copy the part which is before the append arg
+> 		// strcat(argv[2], tmp_0);					// copy the new append arg
+> 		// strcat(argv[2], tmp_2);					// copy the part which is after the append arg
+> 		// printk(KERN_INFO "ZZC: the new qemu cmd is %s\n", argv[2]);	// 打印 qemu cmd
+> 		// strcpy(data, argv[2]);
+> 
+> 		for(i = 0; i < ARGV_AND_ENVP_CNT; i++){		// 释放 argv
 > 			if(argv[i]){
 > 				kfree(argv[i]);
 > 				argv[i] = NULL;
@@ -149,6 +168,7 @@
 > 		// 	}
 > 		// }		
 > 
+> 		// 把 argv 构造为 {"/bin/sh", "-c", "${qemu_cmd} > /tmp/zzc-test"}
 > 		argv[0] = kmalloc(strlen("/bin/sh") + 1, GFP_KERNEL);
 > 		strcpy(argv[0], "/bin/sh");
 > 		argv[1] = kmalloc(strlen("-c") + 1, GFP_KERNEL);
@@ -158,7 +178,7 @@
 > 		// strcat(argv[2], data);
 > 		strcpy(argv[2], data);
 > 		// strcpy(argv[2], "/bin/ls");
-> 		strcat(argv[2], " > /tmp/zzc-test");	// the whole cmd is [/bin/sh -c '${qemu_cmd} > /tmp/zzc-test']
+> 		strcat(argv[2], " > /tmp/zzc-test");
 > 		// strcat(argv[2], "\'");
 > 
 > 
@@ -166,9 +186,12 @@
 > 		printk(KERN_INFO "ZZC: argv[1] is %s\n", argv[1]);
 > 		printk(KERN_INFO "ZZC: argv[2] is %s\n", argv[2]);
 > 
+> 		printk(KERN_INFO "ZZC: The time now is %llu\n", ktime_get());
 > 
 > 		ret_val = call_usermodehelper(argv[0], argv, envp, UMH_WAIT_PROC);
 > 		printk(KERN_INFO "ZZC: call_usermodehelper ret_val is %d\n", ret_val);
+> 
+> 		printk(KERN_INFO "ZZC: The time now is %llu\n", ktime_get());
 > 
 > 		fp = filp_open("/tmp/zzc-test", O_RDONLY, 0);	// open call_usermodehelper() output file
 > 		if (IS_ERR(fp)){
@@ -177,12 +200,16 @@
 > 			goto zzc_out;
 > 			// return -1;
 > 		}
+> 
+> 		printk(KERN_INFO "ZZC: The time now is %llu\n", ktime_get());
 > 		
 > 		pos	= 0;
 > 		ret_val = kernel_read(fp, (void*)ret_context, DATA_LEN_1, &pos);	// read call_usermodehelper() output file
 > 		if(ret_val >= 0) ret_context[ret_val - 1] = '\0';
 > 		printk(KERN_INFO "ZZC: kernel_read() ret_val is %d\n", ret_val);
 > 		printk(KERN_INFO "ZZC: data read from kernel_read() is %s\n", ret_context);
+> 
+> 		printk(KERN_INFO "ZZC: The time now is %llu\n", ktime_get());
 > 
 > 		// TODO: return the output of the secondary container to the primary container
 > 		// a3 is gva, turn it to hva, and use copy_to_user(or other function?) to convey information
@@ -192,7 +219,6 @@
 > 			printk(KERN_INFO "ZZC: kvm_write_guest_virt_system() fail\n");
 > 			goto zzc_out;
 > 		}
-> 		// copy_to_user(?, ret_context, DATA_LEN_1);
 > 		
 > zzc_out:
 > 		if(fp){
@@ -220,7 +246,12 @@
 > 		if (ret_context) {
 > 			kfree(ret_context);
 > 		}
+> 
+> 		if (data) {
+> 			kfree(data);
+> 		}
 > 		
+> 		printk(KERN_INFO "ZZC: The time now is %llu\n", ktime_get());
 > 
 > 		ret = 0;
 > 		break;
