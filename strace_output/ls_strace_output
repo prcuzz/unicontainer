@@ -1,0 +1,83 @@
+54107 execve("./ls", ["./ls", "/"], 0x7ffec0788990 /* 61 vars */) = 0
+54107 brk(NULL)                         = 0x55fba0394000
+54107 arch_prctl(0x3001 /* ARCH_??? */, 0x7ffc07eba2a0) = -1 EINVAL (无效的参数)
+54107 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa13762c000
+54107 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (没有那个文件或目录)
+54107 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+54107 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=118191, ...}, AT_EMPTY_PATH) = 0
+54107 mmap(NULL, 118191, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fa13760f000
+54107 close(3)                          = 0
+54107 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 3
+54107 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+54107 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=166280, ...}, AT_EMPTY_PATH) = 0
+54107 mmap(NULL, 177672, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fa1375e3000
+54107 mprotect(0x7fa1375e9000, 139264, PROT_NONE) = 0
+54107 mmap(0x7fa1375e9000, 106496, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x7fa1375e9000
+54107 mmap(0x7fa137603000, 28672, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x20000) = 0x7fa137603000
+54107 mmap(0x7fa13760b000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x27000) = 0x7fa13760b000
+54107 mmap(0x7fa13760d000, 5640, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fa13760d000
+54107 close(3)                          = 0
+54107 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+54107 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+54107 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+54107 pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+54107 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68
+54107 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0
+54107 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+54107 mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fa1373bb000
+54107 mmap(0x7fa1373e3000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7fa1373e3000
+54107 mmap(0x7fa137578000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7fa137578000
+54107 mmap(0x7fa1375d0000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7fa1375d0000
+54107 mmap(0x7fa1375d6000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fa1375d6000
+54107 close(3)                          = 0
+54107 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpcre2-8.so.0", O_RDONLY|O_CLOEXEC) = 3
+54107 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+54107 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=613064, ...}, AT_EMPTY_PATH) = 0
+54107 mmap(NULL, 615184, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fa137324000
+54107 mmap(0x7fa137326000, 438272, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7fa137326000
+54107 mmap(0x7fa137391000, 163840, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6d000) = 0x7fa137391000
+54107 mmap(0x7fa1373b9000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x94000) = 0x7fa1373b9000
+54107 close(3)                          = 0
+54107 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fa137321000
+54107 arch_prctl(ARCH_SET_FS, 0x7fa137321800) = 0
+54107 set_tid_address(0x7fa137321ad0)   = 54107
+54107 set_robust_list(0x7fa137321ae0, 24) = 0
+54107 rseq(0x7fa1373221a0, 0x20, 0, 0x53053053) = 0
+54107 mprotect(0x7fa1375d0000, 16384, PROT_READ) = 0
+54107 mprotect(0x7fa1373b9000, 4096, PROT_READ) = 0
+54107 mprotect(0x7fa13760b000, 4096, PROT_READ) = 0
+54107 mprotect(0x55fb9ea1e000, 8192, PROT_READ) = 0
+54107 mprotect(0x7fa137666000, 8192, PROT_READ) = 0
+54107 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+54107 munmap(0x7fa13760f000, 118191)    = 0
+54107 statfs("/sys/fs/selinux", 0x7ffc07eba2e0) = -1 ENOENT (没有那个文件或目录)
+54107 statfs("/selinux", 0x7ffc07eba2e0) = -1 ENOENT (没有那个文件或目录)
+54107 getrandom("\x26\x79\x1b\xb2\xef\x25\x56\x0c", 8, GRND_NONBLOCK) = 8
+54107 brk(NULL)                         = 0x55fba0394000
+54107 brk(0x55fba03b5000)               = 0x55fba03b5000
+54107 openat(AT_FDCWD, "/proc/filesystems", O_RDONLY|O_CLOEXEC) = 3
+54107 newfstatat(3, "", {st_mode=S_IFREG|0444, st_size=0, ...}, AT_EMPTY_PATH) = 0
+54107 read(3, "nodev\tsysfs\nnodev\ttmpfs\nnodev\tbd"..., 1024) = 436
+54107 read(3, "", 1024)                 = 0
+54107 close(3)                          = 0
+54107 access("/etc/selinux/config", F_OK) = -1 ENOENT (没有那个文件或目录)
+54107 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+54107 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=8876560, ...}, AT_EMPTY_PATH) = 0
+54107 mmap(NULL, 8876560, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fa136aa9000
+54107 close(3)                          = 0
+54107 ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+54107 ioctl(1, TIOCGWINSZ, {ws_row=24, ws_col=80, ws_xpixel=0, ws_ypixel=0}) = 0
+54107 stat("/", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+54107 openat(AT_FDCWD, "/", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+54107 newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
+54107 getdents64(3, 0x55fba039aa40 /* 28 entries */, 32768) = 728
+54107 getdents64(3, 0x55fba039aa40 /* 0 entries */, 32768) = 0
+54107 close(3)                          = 0
+54107 newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x2), ...}, AT_EMPTY_PATH) = 0
+54107 write(1, "bin    dev  home   lib64       m"..., 64) = 64
+54107 write(1, "boot   etc  lib    libx32      m"..., 62) = 62
+54107 write(1, "cdrom  go   lib32  lost+found  o"..., 54) = 54
+54107 close(1)                          = 0
+54107 close(2)                          = 0
+54107 exit_group(0)                     = ?
+54107 +++ exited with 0 +++

@@ -1,0 +1,58 @@
+69082 execve("./http_server", ["./http_server"], 0x7ffe72e536f8 /* 61 vars */) = 0
+69082 brk(NULL)                         = 0x555ea29dd000
+69082 arch_prctl(0x3001 /* ARCH_??? */, 0x7ffed70f4390) = -1 EINVAL (无效的参数)
+69082 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f209149c000
+69082 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (没有那个文件或目录)
+69082 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+69082 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=118191, ...}, AT_EMPTY_PATH) = 0
+69082 mmap(NULL, 118191, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f209147f000
+69082 close(3)                          = 0
+69082 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+69082 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+69082 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+69082 pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+69082 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68
+69082 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0
+69082 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+69082 mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f2091257000
+69082 mmap(0x7f209127f000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f209127f000
+69082 mmap(0x7f2091414000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f2091414000
+69082 mmap(0x7f209146c000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7f209146c000
+69082 mmap(0x7f2091472000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f2091472000
+69082 close(3)                          = 0
+69082 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f2091254000
+69082 arch_prctl(ARCH_SET_FS, 0x7f2091254740) = 0
+69082 set_tid_address(0x7f2091254a10)   = 69082
+69082 set_robust_list(0x7f2091254a20, 24) = 0
+69082 rseq(0x7f20912550e0, 0x20, 0, 0x53053053) = 0
+69082 mprotect(0x7f209146c000, 16384, PROT_READ) = 0
+69082 mprotect(0x555ea156a000, 4096, PROT_READ) = 0
+69082 mprotect(0x7f20914d6000, 8192, PROT_READ) = 0
+69082 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+69082 munmap(0x7f209147f000, 118191)    = 0
+69082 socket(AF_INET, SOCK_STREAM, IPPROTO_IP) = 3
+69082 bind(3, {sa_family=AF_INET, sin_port=htons(8080), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+69082 listen(3, 1)                      = 0
+69082 newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x2), ...}, AT_EMPTY_PATH) = 0
+69082 getrandom("\x96\x54\xa7\x94\xa8\xe6\x04\x33", 8, GRND_NONBLOCK) = 8
+69082 brk(NULL)                         = 0x555ea29dd000
+69082 brk(0x555ea29fe000)               = 0x555ea29fe000
+69082 write(1, "Listening on port 8080...\n", 26) = 26
+69082 accept(3, NULL, NULL)             = 4
+69082 read(4, "GET / HTTP/1.1\r\nHost: 127.0.0.1:"..., 2048) = 646
+69082 write(4, "HTTP/1.1 200 OK\r\nContent-type: t"..., 222) = 222
+69082 write(1, "Sent a reply\n", 13)    = 13
+69082 close(4)                          = 0
+69082 accept(3, NULL, NULL)             = 4
+69082 read(4, "GET /favicon.ico HTTP/1.1\r\nHost:"..., 2048) = 572
+69082 write(4, "HTTP/1.1 200 OK\r\nContent-type: t"..., 222) = 222
+69082 write(1, "Sent a reply\n", 13)    = 13
+69082 close(4)                          = 0
+69082 accept(3, NULL, NULL)             = 4
+69082 read(4, "", 2048)                 = 0
+69082 write(4, "HTTP/1.1 200 OK\r\nContent-type: t"..., 222) = 222
+69082 write(1, "Sent a reply\n", 13)    = 13
+69082 close(4)                          = 0
+69082 accept(3, NULL, NULL)             = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+69082 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+69082 +++ killed by SIGINT +++
