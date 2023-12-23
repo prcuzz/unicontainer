@@ -4,7 +4,7 @@ import glob
 import shutil
 
 
-def modify_config(lib_list):
+def modify_syscall_lib_config(lib_list):
     environ_config = \
         """CONFIG_LIBPOSIX_ENVIRON=y
 
@@ -43,7 +43,9 @@ CONFIG_LIBPOSIX_ENVIRON_ENVP15=""
 """
 
     socket_config = \
-        """CONFIG_LIBPOSIX_SOCKET=y
+        """CONFIG_HAVE_NW_STACK=y
+CONFIG_LIBVIRTIO_NET=y
+CONFIG_LIBPOSIX_SOCKET=y
 # CONFIG_LIBPOSIX_SOCKET_PRINT_ERRORS is not set
 """
 
@@ -55,7 +57,13 @@ CONFIG_LIBPOSIX_USER_USERNAME="root"
 CONFIG_LIBPOSIX_USER_GROUPNAME="root"
 """
 
-    signal_config = """CONFIG_LIBUKSIGNAL=y"""
+    signal_config = \
+        """CONFIG_LIBUKSIGNAL=y
+"""
+
+    libparam_config = \
+        """CONFIG_LIBUKLIBPARAM=y
+"""
 
     netdev_config = \
         """CONFIG_LIBUKNETDEV=y
@@ -64,12 +72,17 @@ CONFIG_LIBUKNETDEV_DISPATCHERTHREADS=y
 # CONFIG_LIBUKNETDEV_STATS is not set
 """
 
+    mpi_config = \
+    """CONFIG_LIBUKMPI=y
+CONFIG_LIBUKMPI_MBOX=y
+"""
+
     lwip_config = \
-    """CONFIG_LIBLWIP=y
+        """CONFIG_LIBLWIP=y
 # CONFIG_LWIP_RELEASE212 is not set
 # CONFIG_LWIP_LATEST21X is not set
 CONFIG_LWIP_UNIKRAFT21X=y
-
+    
 #
 # Netif drivers
 #
@@ -78,7 +91,7 @@ CONFIG_LWIP_UKNETDEV=y
 # CONFIG_LWIP_UKNETDEV_POLLONLY is not set
 CONFIG_LWIP_UKNETDEV_SCRATCH=64
 # end of Netif drivers
-
+    
 CONFIG_LWIP_AUTOIFACE=y
 # CONFIG_LWIP_NOTHREADS is not set
 CONFIG_LWIP_THREADS=y
@@ -97,13 +110,13 @@ CONFIG_LWIP_NETIF_STATUS_PRINT=y
 CONFIG_LWIP_LOOPBACK=y
 CONFIG_LWIP_IPV4=y
 # CONFIG_LWIP_IPV6 is not set
-
+    
 #
 # IP Configuration
 #
 CONFIG_LWIP_IP_REASS_MAX_PBUFS=10
 # end of IP Configuration
-
+    
 CONFIG_LWIP_UDP=y
 CONFIG_LWIP_TCP=y
 CONFIG_LWIP_TCP_MSS=1460
@@ -123,7 +136,7 @@ CONFIG_LWIP_SOCKET=y
 CONFIG_LWIP_UDP_RECVMBOX_FACTOR=2
 CONFIG_LWIP_TCP_RECVMBOX_FACTOR=2
 # CONFIG_LWIP_DEBUG is not set
-# end of Library Configuration"""
+"""
 
     # 复制文件.config.helloworld为.config
     shutil.copyfile('.config.helloworld', '.config')
@@ -135,18 +148,55 @@ CONFIG_LWIP_TCP_RECVMBOX_FACTOR=2
         lines = file.readlines()
 
     with open(file_path, 'w') as file:
-        found = False
         for line in lines:
-            if "posix-environ" in lib_list:
-                if line.startswith('# CONFIG_LIBPOSIX_ENVIRON'):
-                    file.write(environ_config)
-                    found = True
-                else:
-                    file.write(line)
-                    if found and line == environ_config.splitlines()[-1]:
-                        found = False
+            if line.startswith('# CONFIG_LIBPOSIX_ENVIRON') and "posix-environ" in lib_list:
+                file.write(environ_config)
+            elif line.startswith('# CONFIG_LIBPOSIX_EVENT') and "posix-event" in lib_list:
+                file.write(event_config)
+            elif line.startswith('# CONFIG_LIBPOSIX_FUTEX') and "posix-futex" in lib_list:
+                file.write(futex_config)
+            elif line.startswith('# CONFIG_LIBPOSIX_SOCKET') and "posix-socket" in lib_list:
+                file.write(socket_config)
+            elif line.startswith('# CONFIG_LIBLWIP') and "posix-socket" in lib_list:
+                file.write(lwip_config)
+            elif line.startswith('# CONFIG_LIBUKMPI') and "posix-socket" in lib_list:
+                file.write(mpi_config)
+            elif line.startswith('# CONFIG_LIBUKNETDEV') and "posix-socket" in lib_list:
+                file.write(netdev_config)
+            elif line.startswith('# CONFIG_LIBUKLIBPARAM') and "posix-socket" in lib_list:
+                file.write(libparam_config)
+            elif line.startswith('# CONFIG_LIBPOSIX_USER') and "posix-user" in lib_list:
+                file.write(user_config)
+            elif line.startswith('# CONFIG_LIBUKSIGNAL') and "uksignal" in lib_list:
+                file.write(signal_config)
+            else:
+                file.write(line)
 
-    pass
+    print("配置文件生成完毕")
+
+def modify_selectable_basic_lib_config():
+    devfs_config = \
+    """CONFIG_LIBDEVFS=y
+# CONFIG_LIBDEVFS_AUTOMOUNT is not set
+# CONFIG_LIBDEVFS_DEV_NULL is not set
+# CONFIG_LIBDEVFS_DEV_ZERO is not set
+# CONFIG_LIBDEVFS_DEV_STDOUT is not set
+"""
+
+    shutil.copyfile('.config', '.config_0')
+
+    # 读取.config文件并替换特定行内容
+    file_path = '.config_0'
+
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+
+    with open(file_path, 'w') as file:
+        for line in lines:
+            if "CONFIG_LIBDEVFS is not set" in line:
+                file.write(devfs_config)
+            else:
+                file.write(line)
 
 # 输入 strace 的一行结果，输出对应的 syscall
 def analyze_line(line):
@@ -158,6 +208,7 @@ def analyze_line(line):
 
     return syscall
 
+
 def read_exportsyms_file(folder_path):
     file_path = os.path.join(folder_path, 'exportsyms.uk')
     if os.path.exists(file_path):
@@ -166,6 +217,7 @@ def read_exportsyms_file(folder_path):
             return [line.strip() for line in lines]
     else:
         return []
+
 
 def analyze_lib(lib_path):
     folders_dict = {}
@@ -180,10 +232,10 @@ def configuring_unikraft(strace_output_file, unikraft_path):
     syscall_list = []
     with open(strace_output_file, 'r', encoding='utf-8') as f:  # 打开 strace 输出文件
         line = f.readline()
-        while(line):
+        while (line):
             syscall = analyze_line(line)
             if (syscall not in syscall_list) and (syscall is not None):
-                syscall_list.append(syscall)    # 把用到的 syscall 都放进 syscall_list
+                syscall_list.append(syscall)  # 把用到的 syscall 都放进 syscall_list
             line = f.readline()
 
     lib_path = unikraft_path + "/lib"
@@ -197,7 +249,9 @@ def configuring_unikraft(strace_output_file, unikraft_path):
                     lib_list.append(lib)
                 break
 
-    print(lib_list)
+    print("需要添加的库有：", lib_list)
+
+    modify_syscall_lib_config(lib_list)
 
 
 if __name__ == '__main__':
