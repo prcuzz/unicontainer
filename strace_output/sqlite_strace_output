@@ -1,0 +1,324 @@
+244109 gettid( <unfinished ...>
+244109 <... gettid resumed>)            = 12
+244109 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+244109 <... rt_sigprocmask resumed>NULL, 8) = 0
+244109 getpid()                         = 12
+244109 setpgid(0, 12)                   = 0
+244109 ioctl(10, TIOCSPGRP, [12])       = 0
+244109 rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7f060585228e}, NULL, 8) = 0
+244109 rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7f060585228e}, NULL, 8) = 0
+244109 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7f060585228e}, NULL, 8) = 0
+244109 rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7f060585228e}, NULL, 8) = 0
+244109 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7f060585228e}, NULL, 8) = 0
+244109 execve("/usr/bin/sqlite3", ["/usr/bin/sqlite3"], 0x56090cb5bc60 /* 7 vars */) = 0
+244109 arch_prctl(ARCH_SET_FS, 0x7fd48e9fad48) = 0
+244109 set_tid_address(0x7fd48e9fb31c)  = 12
+244109 open("/etc/ld-musl-x86_64.path", O_RDONLY|O_CLOEXEC) = -1 ENOENT (没有那个文件或目录)
+244109 open("/lib/libreadline.so.8", O_RDONLY|O_CLOEXEC) = -1 ENOENT (没有那个文件或目录)
+244109 open("/usr/local/lib/libreadline.so.8", O_RDONLY|O_CLOEXEC) = -1 ENOENT (没有那个文件或目录)
+244109 open("/usr/lib/libreadline.so.8", O_RDONLY|O_CLOEXEC) = 3
+244109 fcntl(3, F_SETFD, FD_CLOEXEC)    = 0
+244109 fstat(3, {st_mode=S_IFREG|0755, st_size=277192, ...}) = 0
+244109 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0hh\1\0\0\0\0\0"..., 960) = 960
+244109 mmap(NULL, 286720, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd48e920000
+244109 mmap(0x7fd48e935000, 122880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED, 3, 0x15000) = 0x7fd48e935000
+244109 mmap(0x7fd48e953000, 36864, PROT_READ, MAP_PRIVATE|MAP_FIXED, 3, 0x33000) = 0x7fd48e953000
+244109 mmap(0x7fd48e95c000, 40960, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 3, 0x3b000) = 0x7fd48e95c000
+244109 mmap(0x7fd48e965000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fd48e965000
+244109 close(3)                         = 0
+244109 open("/lib/libncursesw.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (没有那个文件或目录)
+244109 open("/usr/local/lib/libncursesw.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (没有那个文件或目录)
+244109 open("/usr/lib/libncursesw.so.6", O_RDONLY|O_CLOEXEC) = 3
+244109 fcntl(3, F_SETFD, FD_CLOEXEC)    = 0
+244109 fstat(3, {st_mode=S_IFREG|0755, st_size=367560, ...}) = 0
+244109 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\10}\1\0\0\0\0\0"..., 960) = 960
+244109 mmap(NULL, 372736, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd48e8c5000
+244109 mmap(0x7fd48e8db000, 163840, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED, 3, 0x16000) = 0x7fd48e8db000
+244109 mmap(0x7fd48e903000, 94208, PROT_READ, MAP_PRIVATE|MAP_FIXED, 3, 0x3e000) = 0x7fd48e903000
+244109 mmap(0x7fd48e91a000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 3, 0x54000) = 0x7fd48e91a000
+244109 close(3)                         = 0
+244109 mprotect(0x7fd48e95c000, 12288, PROT_READ) = 0
+244109 mprotect(0x7fd48e9f7000, 4096, PROT_READ) = 0
+244109 mprotect(0x7fd48e91a000, 20480, PROT_READ) = 0
+244109 mprotect(0x562c221ec000, 16384, PROT_READ) = 0
+244109 ioctl(0, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(1, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 rt_sigprocmask(SIG_UNBLOCK, [RT_1 RT_2], NULL, 8) = 0
+244109 rt_sigaction(SIGINT, {sa_handler=0x562c220fcdb0, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+244109 access(":memory:", F_OK)         = -1 ENOENT (没有那个文件或目录)
+244109 getuid()                         = 0
+244109 open("/etc/passwd", O_RDONLY|O_CLOEXEC) = 3
+244109 fcntl(3, F_SETFD, FD_CLOEXEC)    = 0
+244109 fcntl(3, F_SETFD, FD_CLOEXEC)    = 0
+244109 read(3, "root:x:0:0:root:/root:/bin/ash\nb"..., 1024) = 1024
+244109 lseek(3, -993, SEEK_CUR)         = 31
+244109 close(3)                         = 0
+244109 open("/root/.sqliterc", O_RDONLY) = -1 ENOENT (没有那个文件或目录)
+244109 ioctl(1, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 writev(1, [{iov_base="SQLite version 3.32.1 2020-05-25"..., iov_len=41}, {iov_base="\nEnter \".help\" for usage hints.\n", iov_len=32}], 2) = 73
+244109 writev(1, [{iov_base="Connected to a \33[1mtransient in-"..., iov_len=51}, {iov_base=".\n", iov_len=2}], 2) = 53
+244109 writev(1, [{iov_base="Use \".open FILENAME\" to reopen o"..., iov_len=56}, {iov_base="\n", iov_len=1}], 2) = 57
+244109 open("/root/.sqlite_history", O_RDONLY) = 3
+244109 fstat(3, {st_mode=S_IFREG|0600, st_size=42, ...}) = 0
+244109 read(3, "exit\n;\n.exit\n.help\n.databases\n.e"..., 42) = 42
+244109 close(3)                         = 0
+244109 brk(NULL)                        = 0x562c22cf8000
+244109 brk(0x562c22cf9000)              = 0x562c22cf9000
+244109 ioctl(0, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 brk(0x562c22cfb000)              = 0x562c22cfb000
+244109 ioctl(1, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 stat("/root/.terminfo", 0x7ffc6622c720) = -1 ENOENT (没有那个文件或目录)
+244109 stat("/etc/terminfo", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+244109 stat("/usr/share/terminfo", 0x7ffc6622c720) = -1 ENOENT (没有那个文件或目录)
+244109 stat("/lib/terminfo", 0x7ffc6622c720) = -1 ENOENT (没有那个文件或目录)
+244109 stat("/usr/lib/terminfo", 0x7ffc6622c720) = -1 ENOENT (没有那个文件或目录)
+244109 access("/etc/terminfo/x/xterm", R_OK) = 0
+244109 open("/etc/terminfo/x/xterm", O_RDONLY) = 3
+244109 readv(3, [{iov_base="\32\0010\0&\0\17\0\235\1\346\5xterm|xterm terminal"..., iov_len=32768}, {iov_base="", iov_len=1024}], 2) = 3716
+244109 readv(3, [{iov_base="", iov_len=29052}, {iov_base="", iov_len=1024}], 2) = 0
+244109 brk(0x562c22cfc000)              = 0x562c22cfc000
+244109 close(3)                         = 0
+244109 brk(0x562c22cfd000)              = 0x562c22cfd000
+244109 ioctl(1, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+244109 ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+244109 ioctl(1, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(1, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 brk(0x562c22cff000)              = 0x562c22cff000
+244109 brk(0x562c22d01000)              = 0x562c22d01000
+244109 brk(0x562c22d03000)              = 0x562c22d03000
+244109 brk(0x562c22d05000)              = 0x562c22d05000
+244109 brk(0x562c22d07000)              = 0x562c22d07000
+244109 brk(0x562c22d09000)              = 0x562c22d09000
+244109 brk(0x562c22d0b000)              = 0x562c22d0b000
+244109 brk(0x562c22d0d000)              = 0x562c22d0d000
+244109 brk(0x562c22d0f000)              = 0x562c22d0f000
+244109 ioctl(0, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(0, TIOCSWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(0, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+244109 open("/root/.inputrc", O_RDONLY) = -1 ENOENT (没有那个文件或目录)
+244109 open("/etc/inputrc", O_RDONLY)   = 3
+244109 fstat(3, {st_mode=S_IFREG|0644, st_size=1748, ...}) = 0
+244109 read(3, "# /etc/inputrc - global inputrc "..., 1748) = 1748
+244109 close(3)                         = 0
+244109 brk(0x562c22d11000)              = 0x562c22d11000
+244109 brk(0x562c22d13000)              = 0x562c22d13000
+244109 brk(0x562c22d15000)              = 0x562c22d15000
+244109 brk(0x562c22d17000)              = 0x562c22d17000
+244109 brk(0x562c22d19000)              = 0x562c22d19000
+244109 brk(0x562c22d1b000)              = 0x562c22d1b000
+244109 brk(0x562c22d1d000)              = 0x562c22d1d000
+244109 brk(0x562c22d1f000)              = 0x562c22d1f000
+244109 brk(0x562c22d21000)              = 0x562c22d21000
+244109 brk(0x562c22d23000)              = 0x562c22d23000
+244109 brk(0x562c22d25000)              = 0x562c22d25000
+244109 brk(0x562c22d27000)              = 0x562c22d27000
+244109 brk(0x562c22d29000)              = 0x562c22d29000
+244109 ioctl(0, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(0, TIOCSWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(0, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+244109 ioctl(0, SNDCTL_TMR_STOP or TCSETSW, {B38400 opost isig -icanon -echo ...}) = 0
+244109 rt_sigprocmask(SIG_BLOCK, [HUP INT QUIT ALRM TERM TSTP TTIN TTOU], [], 8) = 0
+244109 rt_sigaction(SIGINT, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x562c220fcdb0, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTERM, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+244109 rt_sigaction(SIGHUP, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+244109 rt_sigaction(SIGQUIT, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+244109 rt_sigaction(SIGALRM, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+244109 rt_sigaction(SIGTSTP, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+244109 rt_sigaction(SIGTTOU, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+244109 rt_sigaction(SIGTTIN, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+244109 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+244109 rt_sigaction(SIGWINCH, {sa_handler=0x7fd48e94789f, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+244109 brk(0x562c22d2a000)              = 0x562c22d2a000
+244109 brk(0x562c22d2b000)              = 0x562c22d2b000
+244109 writev(1, [{iov_base="sqlite> ", iov_len=8}, {iov_base=NULL, iov_len=0}], 2) = 8
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, ".", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base=".", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "h", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="h", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "e", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="e", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "l", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="l", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "\t", 1)                 = 1
+244109 writev(2, [{iov_base="", iov_len=0}, {iov_base="\7", iov_len=1}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "p", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="p", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "\r", 1)                 = 1
+244109 writev(1, [{iov_base="", iov_len=0}, {iov_base="\n", iov_len=1}], 2) = 1
+244109 ioctl(0, SNDCTL_TMR_STOP or TCSETSW, {B38400 opost isig icanon echo ...}) = 0
+244109 rt_sigaction(SIGINT, {sa_handler=0x562c220fcdb0, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGHUP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGALRM, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGWINCH, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94789f, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 writev(1, [{iov_base=".auth ON|OFF             Show au"..., iov_len=50}, {iov_base="\n", iov_len=1}], 2) = 51
+244109 writev(1, [{iov_base=".backup ?DB? FILE        Backup "..., iov_len=59}, {iov_base="\n", iov_len=1}], 2) = 60
+244109 writev(1, [{iov_base=".bail on|off             Stop af"..., iov_len=66}, {iov_base="\n", iov_len=1}], 2) = 67
+244109 writev(1, [{iov_base=".binary on|off           Turn bi"..., iov_len=67}, {iov_base="\n", iov_len=1}], 2) = 68
+244109 writev(1, [{iov_base=".cd DIRECTORY            Change "..., iov_len=66}, {iov_base="\n", iov_len=1}], 2) = 67
+244109 writev(1, [{iov_base=".changes on|off          Show nu"..., iov_len=59}, {iov_base="\n", iov_len=1}], 2) = 60
+244109 writev(1, [{iov_base=".check GLOB              Fail if"..., iov_len=70}, {iov_base="\n", iov_len=1}], 2) = 71
+244109 writev(1, [{iov_base=".clone NEWDB             Clone d"..., iov_len=73}, {iov_base="\n", iov_len=1}], 2) = 74
+244109 writev(1, [{iov_base=".databases               List na"..., iov_len=67}, {iov_base="\n", iov_len=1}], 2) = 68
+244109 writev(1, [{iov_base=".dbconfig ?op? ?val?     List or"..., iov_len=67}, {iov_base="\n", iov_len=1}], 2) = 68
+244109 writev(1, [{iov_base=".dbinfo ?DB?             Show st"..., iov_len=67}, {iov_base="\n", iov_len=1}], 2) = 68
+244109 writev(1, [{iov_base=".dump ?TABLE?            Render "..., iov_len=55}, {iov_base="\n", iov_len=1}], 2) = 56
+244109 writev(1, [{iov_base=".echo on|off             Turn co"..., iov_len=52}, {iov_base="\n", iov_len=1}], 2) = 53
+244109 writev(1, [{iov_base=".eqp on|off|full|...     Enable "..., iov_len=71}, {iov_base="\n", iov_len=1}], 2) = 72
+244109 writev(1, [{iov_base=".excel                   Display"..., iov_len=74}, {iov_base="\n", iov_len=1}], 2) = 75
+244109 writev(1, [{iov_base=".exit ?CODE?             Exit th"..., iov_len=64}, {iov_base="\n", iov_len=1}], 2) = 65
+244109 writev(1, [{iov_base=".expert                  EXPERIM"..., iov_len=66}, {iov_base="\n", iov_len=1}], 2) = 67
+244109 writev(1, [{iov_base=".explain ?on|off|auto?   Change "..., iov_len=75}, {iov_base="\n", iov_len=1}], 2) = 76
+244109 writev(1, [{iov_base=".filectrl CMD ...        Run var"..., iov_len=70}, {iov_base="\n", iov_len=1}], 2) = 71
+244109 writev(1, [{iov_base=".fullschema ?--indent?   Show sc"..., iov_len=74}, {iov_base="\n", iov_len=1}], 2) = 75
+244109 writev(1, [{iov_base=".headers on|off          Turn di"..., iov_len=58}, {iov_base="\n", iov_len=1}], 2) = 59
+244109 writev(1, [{iov_base=".help ?-all? ?PATTERN?   Show he"..., iov_len=51}, {iov_base="\n", iov_len=1}], 2) = 52
+244109 writev(1, [{iov_base=".import FILE TABLE       Import "..., iov_len=57}, {iov_base="\n", iov_len=1}], 2) = 58
+244109 writev(1, [{iov_base=".imposter INDEX TABLE    Create "..., iov_len=67}, {iov_base="\n", iov_len=1}], 2) = 68
+244109 writev(1, [{iov_base=".indexes ?TABLE?         Show na"..., iov_len=46}, {iov_base="\n", iov_len=1}], 2) = 47
+244109 writev(1, [{iov_base=".limit ?LIMIT? ?VAL?     Display"..., iov_len=71}, {iov_base="\n", iov_len=1}], 2) = 72
+244109 writev(1, [{iov_base=".lint OPTIONS            Report "..., iov_len=56}, {iov_base="\n", iov_len=1}], 2) = 57
+244109 writev(1, [{iov_base=".load FILE ?ENTRY?       Load an"..., iov_len=50}, {iov_base="\n", iov_len=1}], 2) = 51
+244109 writev(1, [{iov_base=".log FILE|off            Turn lo"..., iov_len=75}, {iov_base="\n", iov_len=1}], 2) = 76
+244109 writev(1, [{iov_base=".mode MODE ?TABLE?       Set out"..., iov_len=40}, {iov_base="\n", iov_len=1}], 2) = 41
+244109 writev(1, [{iov_base=".nullvalue STRING        Use STR"..., iov_len=59}, {iov_base="\n", iov_len=1}], 2) = 60
+244109 writev(1, [{iov_base=".once ?OPTIONS? ?FILE?   Output "..., iov_len=69}, {iov_base="\n", iov_len=1}], 2) = 70
+244109 writev(1, [{iov_base=".open ?OPTIONS? ?FILE?   Close e"..., iov_len=64}, {iov_base="\n", iov_len=1}], 2) = 65
+244109 writev(1, [{iov_base=".output ?FILE?           Send ou"..., iov_len=73}, {iov_base="\n", iov_len=1}], 2) = 74
+244109 writev(1, [{iov_base=".parameter CMD ...       Manage "..., iov_len=54}, {iov_base="\n", iov_len=1}], 2) = 55
+244109 writev(1, [{iov_base=".print STRING...         Print l"..., iov_len=45}, {iov_base="\n", iov_len=1}], 2) = 46
+244109 writev(1, [{iov_base=".progress N              Invoke "..., iov_len=70}, {iov_base="\n", iov_len=1}], 2) = 71
+244109 writev(1, [{iov_base=".prompt MAIN CONTINUE    Replace"..., iov_len=53}, {iov_base="\n", iov_len=1}], 2) = 54
+244109 writev(1, [{iov_base=".quit                    Exit th"..., iov_len=42}, {iov_base="\n", iov_len=1}], 2) = 43
+244109 writev(1, [{iov_base=".read FILE               Read in"..., iov_len=45}, {iov_base="\n", iov_len=1}], 2) = 46
+244109 writev(1, [{iov_base=".recover                 Recover"..., iov_len=74}, {iov_base="\n", iov_len=1}], 2) = 75
+244109 writev(1, [{iov_base=".restore ?DB? FILE       Restore"..., iov_len=73}, {iov_base="\n", iov_len=1}], 2) = 74
+244109 writev(1, [{iov_base=".save FILE               Write i"..., iov_len=59}, {iov_base="\n", iov_len=1}], 2) = 60
+244109 writev(1, [{iov_base=".scanstats on|off        Turn sq"..., iov_len=73}, {iov_base="\n", iov_len=1}], 2) = 74
+244109 writev(1, [{iov_base=".schema ?PATTERN?        Show th"..., iov_len=68}, {iov_base="\n", iov_len=1}], 2) = 69
+244109 writev(1, [{iov_base=".selftest ?OPTIONS?      Run tes"..., iov_len=64}, {iov_base="\n", iov_len=1}], 2) = 65
+244109 writev(1, [{iov_base=".separator COL ?ROW?     Change "..., iov_len=61}, {iov_base="\n", iov_len=1}], 2) = 62
+244109 writev(1, [{iov_base=".sha3sum ...             Compute"..., iov_len=64}, {iov_base="\n", iov_len=1}], 2) = 65
+244109 writev(1, [{iov_base=".shell CMD ARGS...       Run CMD"..., iov_len=58}, {iov_base="\n", iov_len=1}], 2) = 59
+244109 writev(1, [{iov_base=".show                    Show th"..., iov_len=69}, {iov_base="\n", iov_len=1}], 2) = 70
+244109 writev(1, [{iov_base=".stats ?on|off?          Show st"..., iov_len=59}, {iov_base="\n", iov_len=1}], 2) = 60
+244109 writev(1, [{iov_base=".system CMD ARGS...      Run CMD"..., iov_len=58}, {iov_base="\n", iov_len=1}], 2) = 59
+244109 writev(1, [{iov_base=".tables ?TABLE?          List na"..., iov_len=73}, {iov_base="\n", iov_len=1}], 2) = 74
+244109 writev(1, [{iov_base=".testcase NAME           Begin r"..., iov_len=71}, {iov_base="\n", iov_len=1}], 2) = 72
+244109 writev(1, [{iov_base=".testctrl CMD ...        Run var"..., iov_len=70}, {iov_base="\n", iov_len=1}], 2) = 71
+244109 writev(1, [{iov_base=".timeout MS              Try ope"..., iov_len=70}, {iov_base="\n", iov_len=1}], 2) = 71
+244109 writev(1, [{iov_base=".timer on|off            Turn SQ"..., iov_len=49}, {iov_base="\n", iov_len=1}], 2) = 50
+244109 writev(1, [{iov_base=".trace ?OPTIONS?         Output "..., iov_len=63}, {iov_base="\n", iov_len=1}], 2) = 64
+244109 writev(1, [{iov_base=".vfsinfo ?AUX?           Informa"..., iov_len=60}, {iov_base="\n", iov_len=1}], 2) = 61
+244109 writev(1, [{iov_base=".vfslist                 List al"..., iov_len=49}, {iov_base="\n", iov_len=1}], 2) = 50
+244109 writev(1, [{iov_base=".vfsname ?AUX?           Print t"..., iov_len=56}, {iov_base="\n", iov_len=1}], 2) = 57
+244109 writev(1, [{iov_base=".width NUM1 NUM2 ...     Set col"..., iov_len=60}, {iov_base="\n", iov_len=1}], 2) = 61
+244109 ioctl(0, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(0, TIOCSWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(0, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+244109 ioctl(0, SNDCTL_TMR_STOP or TCSETSW, {B38400 opost isig -icanon -echo ...}) = 0
+244109 rt_sigprocmask(SIG_BLOCK, [HUP INT QUIT ALRM TERM TSTP TTIN TTOU], [], 8) = 0
+244109 rt_sigaction(SIGINT, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x562c220fcdb0, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTERM, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGHUP, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGQUIT, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGALRM, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTSTP, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTTOU, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTTIN, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+244109 rt_sigaction(SIGWINCH, {sa_handler=0x7fd48e94789f, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 writev(1, [{iov_base="sqlite> ", iov_len=8}, {iov_base=NULL, iov_len=0}], 2) = 8
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, ".", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base=".", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "d", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="d", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "a", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="a", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "t", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="t", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "a", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="a", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "b", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="b", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "a", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="a", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "s", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="s", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "e", 1)                  = 1
+244109 select(1, [0], NULL, [0], {tv_sec=0, tv_usec=0}) = 0 (Timeout)
+244109 writev(1, [{iov_base="e", iov_len=1}, {iov_base=NULL, iov_len=0}], 2) = 1
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+244109 read(0, "\r", 1)                 = 1
+244109 writev(1, [{iov_base="", iov_len=0}, {iov_base="\n", iov_len=1}], 2) = 1
+244109 ioctl(0, SNDCTL_TMR_STOP or TCSETSW, {B38400 opost isig icanon echo ...}) = 0
+244109 rt_sigaction(SIGINT, {sa_handler=0x562c220fcdb0, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGHUP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGALRM, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGWINCH, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x7fd48e94789f, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 open(":memory:", O_RDONLY)       = -1 ENOENT (没有那个文件或目录)
+244109 brk(0x562c22d2d000)              = 0x562c22d2d000
+244109 brk(0x562c22d2e000)              = 0x562c22d2e000
+244109 brk(0x562c22d2f000)              = 0x562c22d2f000
+244109 brk(0x562c22d30000)              = 0x562c22d30000
+244109 brk(0x562c22d31000)              = 0x562c22d31000
+244109 brk(0x562c22d3d000)              = 0x562c22d3d000
+244109 brk(0x562c22d3f000)              = 0x562c22d3f000
+244109 brk(0x562c22d40000)              = 0x562c22d40000
+244109 writev(1, [{iov_base="main: ", iov_len=6}, {iov_base="\n", iov_len=1}], 2) = 7
+244109 ioctl(0, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(0, TIOCSWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+244109 ioctl(0, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+244109 ioctl(0, SNDCTL_TMR_STOP or TCSETSW, {B38400 opost isig -icanon -echo ...}) = 0
+244109 rt_sigprocmask(SIG_BLOCK, [HUP INT QUIT ALRM TERM TSTP TTIN TTOU], [], 8) = 0
+244109 rt_sigaction(SIGINT, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=0x562c220fcdb0, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTERM, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGHUP, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGQUIT, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGALRM, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTSTP, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTTOU, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigaction(SIGTTIN, {sa_handler=0x7fd48e94821c, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+244109 rt_sigaction(SIGWINCH, {sa_handler=0x7fd48e94789f, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fd48e9ab28e}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fd48e9ab28e}, 8) = 0
+244109 writev(1, [{iov_base="sqlite> ", iov_len=8}, {iov_base=NULL, iov_len=0}], 2) = 8
+244109 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8} <detached ...>

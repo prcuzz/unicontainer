@@ -234,6 +234,8 @@ def configuring_unikraft(strace_output_file, unikraft_path):
         line = f.readline()
         while (line):
             syscall = analyze_line(line)
+            if "access" in line and ":memory:" in line:
+                syscall = "futex"              # 处理 access(":memory:", F_OK) 的情况
             if (syscall not in syscall_list) and (syscall is not None):
                 syscall_list.append(syscall)  # 把用到的 syscall 都放进 syscall_list
             line = f.readline()
@@ -248,6 +250,8 @@ def configuring_unikraft(strace_output_file, unikraft_path):
                 if lib not in lib_list:
                     lib_list.append(lib)
                 break
+    if "futex" in syscall_list:
+        lib_list.append("posix-futex")
 
     print("需要添加的库有：", lib_list)
 
@@ -255,6 +259,6 @@ def configuring_unikraft(strace_output_file, unikraft_path):
 
 
 if __name__ == '__main__':
-    strace_output_file = "/home/zzc/Desktop/zzc/unicontainer/strace_output/http_server_strace_output"
+    strace_output_file = "/home/zzc/Desktop/zzc/unicontainer/strace_output/imagemagick_strace_output"
     unikraft_path = "../../unikraft/elfloader/workdir/unikraft"
     configuring_unikraft(strace_output_file, unikraft_path)

@@ -1,0 +1,927 @@
+248060 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+248060 read(0, "\r", 1)                 = 1
+248060 write(2, "\rroot@b6bd51cec3da:/data# /usr/l"..., 53) = 53
+248060 write(2, "\n", 1)                = 1
+248060 write(2, "\33[?2004l\r", 9)      = 9
+248060 ioctl(0, TCGETS, {B38400 opost isig -icanon -echo ...}) = 0
+248060 ioctl(0, SNDCTL_TMR_STOP or TCSETSW, {B38400 opost isig icanon echo ...}) = 0
+248060 ioctl(0, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+248060 rt_sigaction(SIGINT, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGHUP, {sa_handler=0x562f59c73d70, sa_mask=[HUP INT ILL TRAP ABRT BUS FPE USR1 SEGV USR2 PIPE ALRM TERM XCPU XFSZ VTALRM SYS], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGALRM, {sa_handler=0x562f59c73d70, sa_mask=[HUP INT ILL TRAP ABRT BUS FPE USR1 SEGV USR2 PIPE ALRM TERM XCPU XFSZ VTALRM SYS], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGWINCH, {sa_handler=0x562f59c733f0, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf650, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGINT, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigprocmask(SIG_BLOCK, NULL, [], 8) = 0
+248060 rt_sigprocmask(SIG_BLOCK, [INT TERM CHLD], [], 8) = 0
+248060 rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 pipe([3, 4])                     = 0
+248060 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD <unfinished ...>
+248118 getpid()                         = 9
+248118 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+248060 <... clone resumed>, child_tidptr=0x7f614591ba10) = 9
+248118 <... rt_sigprocmask resumed>NULL, 8) = 0
+248118 rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248118 rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60},  <unfinished ...>
+248060 rt_sigaction(SIGTERM, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60},  <unfinished ...>
+248118 <... rt_sigaction resumed>{sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248118 rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248118 setpgid(9, 9 <unfinished ...>
+248060 <... rt_sigaction resumed>{sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248118 <... setpgid resumed>)           = 0
+248118 rt_sigprocmask(SIG_BLOCK, [CHLD TSTP TTIN TTOU], [], 8) = 0
+248060 setpgid(9, 9 <unfinished ...>
+248118 ioctl(255, TIOCSPGRP, [9] <unfinished ...>
+248060 <... setpgid resumed>)           = 0
+248118 <... ioctl resumed>)             = 0
+248118 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+248060 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+248118 <... rt_sigprocmask resumed>NULL, 8) = 0
+248060 <... rt_sigprocmask resumed>NULL, 8) = 0
+248118 close(4 <unfinished ...>
+248060 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+248118 <... close resumed>)             = 0
+248060 <... rt_sigprocmask resumed>[], 8) = 0
+248118 read(3,  <unfinished ...>
+248060 close(3)                         = 0
+248060 close(4 <unfinished ...>
+248118 <... read resumed>"", 1)         = 0
+248060 <... close resumed>)             = 0
+248118 close(3 <unfinished ...>
+248060 ioctl(255, TIOCGPGRP <unfinished ...>
+248118 <... close resumed>)             = 0
+248060 <... ioctl resumed>, [9])        = 0
+248118 rt_sigaction(SIGHUP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60},  <unfinished ...>
+248060 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+248118 <... rt_sigaction resumed>NULL, 8) = 0
+248060 <... rt_sigprocmask resumed>NULL, 8) = 0
+248118 rt_sigaction(SIGILL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248060 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+248118 rt_sigaction(SIGTRAP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60},  <unfinished ...>
+248060 <... rt_sigprocmask resumed>[], 8) = 0
+248118 <... rt_sigaction resumed>NULL, 8) = 0
+248060 wait4(-1,  <unfinished ...>
+248118 rt_sigaction(SIGABRT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGFPE, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGBUS, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGSEGV, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGSYS, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGPIPE, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGALRM, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGXCPU, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGXFSZ, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGVTALRM, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGUSR1, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGUSR2, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, NULL, 8) = 0
+248118 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248118 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248118 rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248118 rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c549c0, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f6145956d60}, 8) = 0
+248118 execve("/usr/local/bin/redis-server", ["/usr/local/bin/redis-server"], 0x562f5a015a70 /* 11 vars */) = 0
+248118 brk(NULL)                        = 0x563408232000
+248118 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (没有那个文件或目录)
+248118 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+248118 fstat(3, {st_mode=S_IFREG|0644, st_size=6196, ...}) = 0
+248118 mmap(NULL, 6196, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f91b6f52000
+248118 close(3)                         = 0
+248118 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+248118 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\322\0\0\0\0\0\0"..., 832) = 832
+248118 fstat(3, {st_mode=S_IFREG|0644, st_size=1321344, ...}) = 0
+248118 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f91b6f50000
+248118 mmap(NULL, 1323280, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f91b6e0c000
+248118 mmap(0x7f91b6e19000, 630784, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xd000) = 0x7f91b6e19000
+248118 mmap(0x7f91b6eb3000, 634880, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xa7000) = 0x7f91b6eb3000
+248118 mmap(0x7f91b6f4e000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x141000) = 0x7f91b6f4e000
+248118 close(3)                         = 0
+248118 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+248118 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000\21\0\0\0\0\0\0"..., 832) = 832
+248118 fstat(3, {st_mode=S_IFREG|0644, st_size=18688, ...}) = 0
+248118 mmap(NULL, 20752, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f91b6e06000
+248118 mmap(0x7f91b6e07000, 8192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1000) = 0x7f91b6e07000
+248118 mmap(0x7f91b6e09000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7f91b6e09000
+248118 mmap(0x7f91b6e0a000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7f91b6e0a000
+248118 close(3)                         = 0
+248118 openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/libssl.so.1.1", O_RDONLY|O_CLOEXEC) = 3
+248118 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0p\364\1\0\0\0\0\0"..., 832) = 832
+248118 fstat(3, {st_mode=S_IFREG|0644, st_size=597792, ...}) = 0
+248118 mmap(NULL, 600368, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f91b6d73000
+248118 mprotect(0x7f91b6d90000, 430080, PROT_NONE) = 0
+248118 mmap(0x7f91b6d90000, 319488, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1d000) = 0x7f91b6d90000
+248118 mmap(0x7f91b6dde000, 106496, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6b000) = 0x7f91b6dde000
+248118 mmap(0x7f91b6df9000, 53248, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x85000) = 0x7f91b6df9000
+248118 close(3)                         = 0
+248118 openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/libcrypto.so.1.1", O_RDONLY|O_CLOEXEC) = 3
+248118 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\t\0\0\0\0\0"..., 832) = 832
+248118 fstat(3, {st_mode=S_IFREG|0644, st_size=3076992, ...}) = 0
+248118 mmap(NULL, 3096528, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f91b6a7f000
+248118 mmap(0x7f91b6b05000, 1732608, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x86000) = 0x7f91b6b05000
+248118 mmap(0x7f91b6cac000, 593920, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x22d000) = 0x7f91b6cac000
+248118 mmap(0x7f91b6d3d000, 204800, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2bd000) = 0x7f91b6d3d000
+248118 mmap(0x7f91b6d6f000, 16336, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f91b6d6f000
+248118 close(3)                         = 0
+248118 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+248118 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 l\0\0\0\0\0\0"..., 832) = 832
+248118 fstat(3, {st_mode=S_IFREG|0755, st_size=149520, ...}) = 0
+248118 mmap(NULL, 136304, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f91b6a5d000
+248118 mmap(0x7f91b6a63000, 65536, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x7f91b6a63000
+248118 mmap(0x7f91b6a73000, 24576, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x16000) = 0x7f91b6a73000
+248118 mmap(0x7f91b6a79000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b000) = 0x7f91b6a79000
+248118 mmap(0x7f91b6a7b000, 13424, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f91b6a7b000
+248118 close(3)                         = 0
+248118 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+248118 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0@>\2\0\0\0\0\0"..., 832) = 832
+248118 fstat(3, {st_mode=S_IFREG|0755, st_size=1905632, ...}) = 0
+248118 mmap(NULL, 1918592, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f91b6888000
+248118 mmap(0x7f91b68aa000, 1417216, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x22000) = 0x7f91b68aa000
+248118 mmap(0x7f91b6a04000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x17c000) = 0x7f91b6a04000
+248118 mmap(0x7f91b6a53000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ca000) = 0x7f91b6a53000
+248118 mmap(0x7f91b6a59000, 13952, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f91b6a59000
+248118 close(3)                         = 0
+248118 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f91b6886000
+248118 mmap(NULL, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f91b6882000
+248118 arch_prctl(ARCH_SET_FS, 0x7f91b6883fc0) = 0
+248118 mprotect(0x7f91b6a53000, 16384, PROT_READ) = 0
+248118 mprotect(0x7f91b6a79000, 4096, PROT_READ) = 0
+248118 mprotect(0x7f91b6e0a000, 4096, PROT_READ) = 0
+248118 mprotect(0x7f91b6d3d000, 196608, PROT_READ) = 0
+248118 mprotect(0x7f91b6df9000, 36864, PROT_READ) = 0
+248118 mprotect(0x7f91b6f4e000, 4096, PROT_READ) = 0
+248118 mprotect(0x563406e9f000, 28672, PROT_READ) = 0
+248118 mprotect(0x7f91b6f7e000, 4096, PROT_READ) = 0
+248118 munmap(0x7f91b6f52000, 6196)     = 0
+248118 set_tid_address(0x7f91b6884290)  = 9
+248118 set_robust_list(0x7f91b68842a0, 24) = 0
+248118 rt_sigaction(SIGRTMIN, {sa_handler=0x7f91b6a63690, sa_mask=[], sa_flags=SA_RESTORER|SA_SIGINFO, sa_restorer=0x7f91b6a70140}, NULL, 8) = 0
+248118 rt_sigaction(SIGRT_1, {sa_handler=0x7f91b6a63730, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART|SA_SIGINFO, sa_restorer=0x7f91b6a70140}, NULL, 8) = 0
+248118 rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+248118 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+248118 readlink("/etc/je_malloc.conf", 0x7ffd494e3a10, 4096) = -1 ENOENT (没有那个文件或目录)
+248118 open("/proc/sys/vm/overcommit_memory", O_RDONLY|O_CLOEXEC) = 3
+248118 read(3, "0", 1)                  = 1
+248118 close(3)                         = 0
+248118 open("/sys/kernel/mm/transparent_hugepage/enabled", O_RDONLY) = 3
+248118 read(3, "always [madvise] never\n", 24) = 23
+248118 close(3)                         = 0
+248118 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f91b6f7d000
+248118 madvise(0x7f91b6f7d000, 4096, MADV_FREE) = 0
+248118 munmap(0x7f91b6f7d000, 4096)     = 0
+248118 mmap(NULL, 2097152, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f91b6682000
+248118 munmap(0x7f91b6682000, 2097152)  = 0
+248118 mmap(NULL, 4190208, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f91b6483000
+248118 munmap(0x7f91b6483000, 1560576)  = 0
+248118 munmap(0x7f91b6800000, 532480)   = 0
+248118 brk(NULL)                        = 0x563408232000
+248118 mmap(NULL, 2097152, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f91b6400000
+248118 mmap(NULL, 4194304, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x7f91b6000000
+248118 openat(AT_FDCWD, "/sys/devices/system/cpu/online", O_RDONLY|O_CLOEXEC) = 3
+248118 read(3, "0-3\n", 8192)           = 4
+248118 close(3)                         = 0
+248118 brk(0x563408253000)              = 0x563408253000
+248118 openat(AT_FDCWD, "/etc/localtime", O_RDONLY|O_CLOEXEC) = 3
+248118 fstat(3, {st_mode=S_IFREG|0644, st_size=118, ...}) = 0
+248118 fstat(3, {st_mode=S_IFREG|0644, st_size=118, ...}) = 0
+248118 read(3, "TZif2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\0\0\1\0\0\0\0"..., 4096) = 118
+248118 lseek(3, -62, SEEK_CUR)          = 56
+248118 read(3, "TZif2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\0\0\1\0\0\0\0"..., 4096) = 62
+248118 close(3)                         = 0
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 umask(0777)                      = 077
+248118 umask(077)                       = 0777
+248118 openat(AT_FDCWD, "/dev/urandom", O_RDONLY) = 3
+248118 fstat(3, {st_mode=S_IFCHR|0666, st_rdev=makedev(0x1, 0x9), ...}) = 0
+248118 ioctl(3, TCGETS, 0x7ffd494e6100) = -1 EINVAL (无效的参数)
+248118 read(3, "\312s\356\201\1\27Y\310\341\317\327\362\273k\231\n\232WK\263/\300/|\242\371\227\254f\376\213\371"..., 4096) = 4096
+248118 close(3)                         = 0
+248118 pipe2([3, 4], O_NONBLOCK|O_CLOEXEC) = 0
+248118 futex(0x7f91b6d71858, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d7184c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d71844, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d71b90, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d6ec7c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d71704, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d7169c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d71690, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d7183c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d717f8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d717f0, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 openat(AT_FDCWD, "/usr/lib/ssl/openssl.cnf", O_RDONLY) = -1 ENOENT (没有那个文件或目录)
+248118 futex(0x7f91b6d71820, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 futex(0x7f91b6d71988, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 getpid()                         = 9
+248118 getrandom("\x24\x59\xed\x67\x2f\x19\x20\xd1\x2a\xaf\x4e\xba\x21\xb7\xa7\xbf\x51\x48\x01\x8b\x8e\xd9\x1d\x59\x8a\x3d\xd0\x5c\xb2\x5d\xf8\x15", 32, 0) = 32
+248118 getpid()                         = 9
+248118 futex(0x7f91b6d71958, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+248118 getrandom("\x7d\xad\xe5\x5b\xc9\xaf\xb2\x07\x0a\x77\xa0\xe2\xc8\xdb\x42\x18\xe7\xaf\x2a\xdb\xa4\xe6\xc4\xb3\xdb\xc4\x51\x96\x50\x4d\xb5\x6b", 32, 0) = 32
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+248118 write(1, "9:C 25 Dec 2023 07:50:14.549 # o"..., 77) = 77
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 write(1, "9:C 25 Dec 2023 07:50:14.550 # R"..., 110) = 110
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 write(1, "9:C 25 Dec 2023 07:50:14.551 # W"..., 178) = 178
+248118 rt_sigaction(SIGHUP, {sa_handler=SIG_IGN, sa_mask=[HUP], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f91b68c0d60}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+248118 rt_sigaction(SIGPIPE, {sa_handler=SIG_IGN, sa_mask=[PIPE], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f91b68c0d60}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+248118 rt_sigaction(SIGTERM, {sa_handler=0x563406ca64b0, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f91b6a70140}, NULL, 8) = 0
+248118 rt_sigaction(SIGINT, {sa_handler=0x563406ca64b0, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f91b6a70140}, NULL, 8) = 0
+248118 rt_sigaction(SIGSEGV, {sa_handler=0x563406d0a7b0, sa_mask=[], sa_flags=SA_RESTORER|SA_NODEFER|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f91b6a70140}, NULL, 8) = 0
+248118 rt_sigaction(SIGBUS, {sa_handler=0x563406d0a7b0, sa_mask=[], sa_flags=SA_RESTORER|SA_NODEFER|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f91b6a70140}, NULL, 8) = 0
+248118 rt_sigaction(SIGFPE, {sa_handler=0x563406d0a7b0, sa_mask=[], sa_flags=SA_RESTORER|SA_NODEFER|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f91b6a70140}, NULL, 8) = 0
+248118 rt_sigaction(SIGILL, {sa_handler=0x563406d0a7b0, sa_mask=[], sa_flags=SA_RESTORER|SA_NODEFER|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f91b6a70140}, NULL, 8) = 0
+248118 rt_sigaction(SIGABRT, {sa_handler=0x563406d0a7b0, sa_mask=[], sa_flags=SA_RESTORER|SA_NODEFER|SA_RESETHAND|SA_SIGINFO|0xffffffff00000000, sa_restorer=0x7f91b6a70140}, NULL, 8) = 0
+248118 getpid()                         = 9
+248118 sysinfo({uptime=69877, loads=[68800, 57952, 55392], totalram=16546549760, freeram=1480597504, sharedram=71634944, bufferram=809140224, totalswap=2147479552, freeswap=2141401088, procs=1038, totalhigh=0, freehigh=0, mem_unit=1}) = 0
+248118 prlimit64(0, RLIMIT_NOFILE, NULL, {rlim_cur=1024*1024, rlim_max=1024*1024}) = 0
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 write(1, "9:M 25 Dec 2023 07:50:14.554 * m"..., 68) = 68
+248118 epoll_create(1024)               = 5
+248118 fcntl(5, F_GETFD)                = 0
+248118 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+248118 socket(AF_INET, SOCK_STREAM, IPPROTO_TCP) = 6
+248118 setsockopt(6, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
+248118 bind(6, {sa_family=AF_INET, sin_port=htons(6379), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+248118 listen(6, 511)                   = 0
+248118 fcntl(6, F_GETFL)                = 0x2 (flags O_RDWR)
+248118 fcntl(6, F_SETFL, O_RDWR|O_NONBLOCK) = 0
+248118 fcntl(6, F_GETFD)                = 0
+248118 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+248118 socket(AF_INET6, SOCK_STREAM, IPPROTO_TCP) = 7
+248118 setsockopt(7, SOL_IPV6, IPV6_V6ONLY, [1], 4) = 0
+248118 setsockopt(7, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
+248118 bind(7, {sa_family=AF_INET6, sin6_port=htons(6379), sin6_flowinfo=htonl(0), inet_pton(AF_INET6, "::", &sin6_addr), sin6_scope_id=0}, 28) = 0
+248118 listen(7, 511)                   = 0
+248118 fcntl(7, F_GETFL)                = 0x2 (flags O_RDWR)
+248118 fcntl(7, F_SETFL, O_RDWR|O_NONBLOCK) = 0
+248118 fcntl(7, F_GETFD)                = 0
+248118 fcntl(7, F_SETFD, FD_CLOEXEC)    = 0
+248118 epoll_ctl(5, EPOLL_CTL_ADD, 6, {events=EPOLLIN, data={u32=6, u64=6}}) = 0
+248118 epoll_ctl(5, EPOLL_CTL_ADD, 7, {events=EPOLLIN, data={u32=7, u64=7}}) = 0
+248118 epoll_ctl(5, EPOLL_CTL_ADD, 3, {events=EPOLLIN, data={u32=3, u64=3}}) = 0
+248118 brk(0x563408274000)              = 0x563408274000
+248118 setitimer(ITIMER_REAL, {it_interval={tv_sec=0, tv_usec=0}, it_value={tv_sec=0, tv_usec=0}}, NULL) = 0
+248118 rt_sigaction(SIGALRM, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f91b6a70140}, NULL, 8) = 0
+248118 ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+248118 getpid()                         = 9
+248118 write(1, "                _._             "..., 1024) = 1024
+248118 write(1, "    _.-'                        "..., 52) = 52
+248118 write(1, "              `-.__.-'          "..., 70) = 70
+248118 write(1, "\n", 1)                = 1
+248118 openat(AT_FDCWD, "/proc/sys/net/core/somaxconn", O_RDONLY) = 8
+248118 fstat(8, {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+248118 read(8, "4096\n", 1024)          = 5
+248118 close(8)                         = 0
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 write(1, "9:M 25 Dec 2023 07:50:14.562 # S"..., 50) = 50
+248118 openat(AT_FDCWD, "/proc/sys/vm/overcommit_memory", O_RDONLY) = 8
+248118 fstat(8, {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+248118 read(8, "0\n", 1024)             = 2
+248118 close(8)                         = 0
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 write(1, "9:M 25 Dec 2023 07:50:14.564 # W"..., 284) = 284
+248118 openat(AT_FDCWD, "/sys/kernel/mm/transparent_hugepage/enabled", O_RDONLY) = 8
+248118 fstat(8, {st_mode=S_IFREG|0644, st_size=4096, ...}) = 0
+248118 read(8, "always [madvise] never\n", 4096) = 23
+248118 close(8)                         = 0
+248118 openat(AT_FDCWD, "/sys/devices/system/clocksource/clocksource0/current_clocksource", O_RDONLY) = 8
+248118 fstat(8, {st_mode=S_IFREG|0644, st_size=4096, ...}) = 0
+248118 read(8, "tsc\n", 4096)           = 4
+248118 close(8)                         = 0
+248118 mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f91b57ff000
+248118 mprotect(0x7f91b5800000, 8388608, PROT_READ|PROT_WRITE) = 0
+248118 clone(child_stack=0x7f91b5ffd730, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID <unfinished ...>
+248119 set_robust_list(0x7f91b5fff9e0, 24 <unfinished ...>
+248118 <... clone resumed>, parent_tid=[10], tls=0x7f91b5fff700, child_tidptr=0x7f91b5fff9d0) = 10
+248119 <... set_robust_list resumed>)   = 0
+248118 mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
+248119 prctl(PR_SET_NAME, "bio_close_file" <unfinished ...>
+248118 <... mmap resumed>)              = 0x7f91b4ffe000
+248119 <... prctl resumed>)             = 0
+248118 mprotect(0x7f91b4fff000, 8388608, PROT_READ|PROT_WRITE <unfinished ...>
+248119 rt_sigprocmask(SIG_BLOCK, [ALRM],  <unfinished ...>
+248118 <... mprotect resumed>)          = 0
+248119 <... rt_sigprocmask resumed>NULL, 8) = 0
+248118 clone(child_stack=0x7f91b57fc730, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID <unfinished ...>
+248119 futex(0x563406f19128, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
+248118 <... clone resumed>, parent_tid=[11], tls=0x7f91b57fe700, child_tidptr=0x7f91b57fe9d0) = 11
+248120 set_robust_list(0x7f91b57fe9e0, 24 <unfinished ...>
+248118 mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0 <unfinished ...>
+248120 <... set_robust_list resumed>)   = 0
+248118 <... mmap resumed>)              = 0x7f91b47fd000
+248120 prctl(PR_SET_NAME, "bio_aof_fsync" <unfinished ...>
+248118 mprotect(0x7f91b47fe000, 8388608, PROT_READ|PROT_WRITE <unfinished ...>
+248120 <... prctl resumed>)             = 0
+248118 <... mprotect resumed>)          = 0
+248120 rt_sigprocmask(SIG_BLOCK, [ALRM],  <unfinished ...>
+248118 clone(child_stack=0x7f91b4ffb730, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID <unfinished ...>
+248120 <... rt_sigprocmask resumed>NULL, 8) = 0
+248120 futex(0x563406f19158, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
+248121 set_robust_list(0x7f91b4ffd9e0, 24 <unfinished ...>
+248118 <... clone resumed>, parent_tid=[12], tls=0x7f91b4ffd700, child_tidptr=0x7f91b4ffd9d0) = 12
+248121 <... set_robust_list resumed>)   = 0
+248121 prctl(PR_SET_NAME, "bio_lazy_free") = 0
+248121 rt_sigprocmask(SIG_BLOCK, [ALRM],  <unfinished ...>
+248118 futex(0x7f91b6e0b0c8, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+248121 <... rt_sigprocmask resumed>NULL, 8) = 0
+248118 <... futex resumed>)             = 0
+248121 futex(0x563406f19188, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
+248118 rt_sigprocmask(SIG_SETMASK, ~[RTMIN RT_1], [], 8) = 0
+248118 mmap(NULL, 8392704, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0x7f91b3ffc000
+248118 mprotect(0x7f91b3ffd000, 8388608, PROT_READ|PROT_WRITE) = 0
+248118 clone(child_stack=0x7f91b47fa730, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID <unfinished ...>
+248122 set_robust_list(0x7f91b47fc9e0, 24 <unfinished ...>
+248118 <... clone resumed>, parent_tid=[13], tls=0x7f91b47fc700, child_tidptr=0x7f91b47fc9d0) = 13
+248122 <... set_robust_list resumed>)   = 0
+248118 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+248122 prctl(PR_SET_NAME, "jemalloc_bg_thd"... <unfinished ...>
+248118 <... rt_sigprocmask resumed>NULL, 8) = 0
+248122 <... prctl resumed>)             = 0
+248118 stat("appendonlydir",  <unfinished ...>
+248122 futex(0x7f91b660a970, FUTEX_WAIT_PRIVATE, 0, NULL <unfinished ...>
+248118 <... stat resumed>0x7ffd494e6370) = -1 ENOENT (没有那个文件或目录)
+248118 openat(AT_FDCWD, "dump.rdb", O_RDONLY) = -1 ENOENT (没有那个文件或目录)
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 write(1, "9:M 25 Dec 2023 07:50:14.571 * R"..., 59) = 59
+248118 epoll_wait(5, [], 10128, 0)      = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 310
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 311
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 311
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 311
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 311
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 311
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 311
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 311
+248118 close(8)                         = 0
+248118 epoll_wait(5, [], 10128, 100)    = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 311
+248118 close(8)                         = 0
+248118 epoll_wait(5, 0x7f91b64f4600, 10128, 100) = -1 EINTR (被中断的系统调用)
+248118 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+248118 getpid()                         = 9
+248118 write(1, "9", 1)                 = 1
+248118 write(1, ":signal-handler (", 17) = 17
+248118 write(1, "1703490626", 10)       = 10
+248118 write(1, ") ", 2)                = 2
+248118 write(1, "Received SIGINT scheduling shutd"..., 38) = 38
+248118 write(1, "\n", 1)                = 1
+248118 rt_sigreturn({mask=[]})          = -1 EINTR (被中断的系统调用)
+248118 epoll_wait(5, [], 10128, 72)     = 0
+248118 openat(AT_FDCWD, "/proc/self/stat", O_RDONLY) = 8
+248118 read(8, "9 (redis-server) R 1 9 1 34816 9"..., 4095) = 311
+248118 close(8)                         = 0
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 write(1, "9:M 25 Dec 2023 07:50:26.197 # U"..., 58) = 58
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 write(1, "9:M 25 Dec 2023 07:50:26.198 * S"..., 77) = 77
+248118 getpid()                         = 9
+248118 openat(AT_FDCWD, "temp-9.rdb", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 8
+248118 getpid()                         = 9
+248118 fstat(8, {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
+248118 write(8, "REDIS0010\372\tredis-ver\0057.0.4\372\nredi"..., 88) = 88
+248118 fsync(8)                         = 0
+248118 close(8)                         = 0
+248118 rename("temp-9.rdb", "dump.rdb") = 0
+248118 openat(AT_FDCWD, ".", O_RDONLY)  = 8
+248118 fdatasync(8)                     = 0
+248118 close(8)                         = 0
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 write(1, "9:M 25 Dec 2023 07:50:26.201 * D"..., 48) = 48
+248118 close(6)                         = 0
+248118 close(7)                         = 0
+248118 getpid()                         = 9
+248118 getpid()                         = 9
+248118 write(1, "9:M 25 Dec 2023 07:50:26.202 # R"..., 70) = 70
+248118 exit_group(0 <unfinished ...>
+248122 <... futex resumed>)             = ?
+248121 <... futex resumed>)             = ?
+248120 <... futex resumed>)             = ?
+248119 <... futex resumed>)             = ?
+248118 <... exit_group resumed>)        = ?
+248122 +++ exited with 0 +++
+248121 +++ exited with 0 +++
+248120 +++ exited with 0 +++
+248119 +++ exited with 0 +++
+248118 +++ exited with 0 +++
+248060 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WSTOPPED|WCONTINUED, NULL) = 9
+248060 rt_sigprocmask(SIG_BLOCK, [CHLD TSTP TTIN TTOU], [CHLD], 8) = 0
+248060 ioctl(255, TIOCSPGRP, [1])       = 0
+248060 rt_sigprocmask(SIG_SETMASK, [CHLD], NULL, 8) = 0
+248060 ioctl(255, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+248060 ioctl(255, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+248060 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+248060 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9, si_uid=0, si_status=0, si_utime=0, si_stime=5} ---
+248060 wait4(-1, 0x7ffe2ad55650, WNOHANG|WSTOPPED|WCONTINUED, NULL) = -1 ECHILD (没有子进程)
+248060 rt_sigreturn({mask=[]})          = 0
+248060 rt_sigaction(SIGINT, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigprocmask(SIG_BLOCK, [CHLD TSTP TTIN TTOU], [], 8) = 0
+248060 ioctl(255, TIOCSPGRP, [1])       = 0
+248060 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+248060 rt_sigaction(SIGINT, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 fcntl(0, F_GETFL)                = 0x8002 (flags O_RDWR|O_LARGEFILE)
+248060 ioctl(0, TIOCGWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+248060 ioctl(0, TIOCSWINSZ, {ws_row=38, ws_col=204, ws_xpixel=0, ws_ypixel=0}) = 0
+248060 ioctl(0, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+248060 ioctl(0, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+248060 ioctl(0, SNDCTL_TMR_STOP or TCSETSW, {B38400 opost isig -icanon -echo ...}) = 0
+248060 ioctl(0, TCGETS, {B38400 opost isig -icanon -echo ...}) = 0
+248060 write(2, "\33[?2004h", 8)        = 8
+248060 rt_sigprocmask(SIG_BLOCK, [HUP INT QUIT ALRM TERM TSTP TTIN TTOU], [], 8) = 0
+248060 rt_sigaction(SIGINT, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGTERM, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGTERM, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGHUP, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c73d70, sa_mask=[HUP INT ILL TRAP ABRT BUS FPE USR1 SEGV USR2 PIPE ALRM TERM XCPU XFSZ VTALRM SYS], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGQUIT, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGQUIT, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGALRM, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c73d70, sa_mask=[HUP INT ILL TRAP ABRT BUS FPE USR1 SEGV USR2 PIPE ALRM TERM XCPU XFSZ VTALRM SYS], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGTSTP, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGTSTP, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGTTOU, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGTTOU, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGTTIN, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGTTIN, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+248060 rt_sigaction(SIGWINCH, {sa_handler=0x562f59ccf650, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c733f0, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 write(2, "root@b6bd51cec3da:/data# ", 25) = 25
+248060 pselect6(1, [0], NULL, NULL, NULL, {sigmask=[], sigsetsize=8}) = 1 (in [0])
+248060 read(0, "\4", 1)                 = 1
+248060 write(2, "\33[?2004l\r\n", 10)   = 10
+248060 ioctl(0, TCGETS, {B38400 opost isig -icanon -echo ...}) = 0
+248060 ioctl(0, SNDCTL_TMR_STOP or TCSETSW, {B38400 opost isig icanon echo ...}) = 0
+248060 ioctl(0, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+248060 rt_sigaction(SIGINT, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGHUP, {sa_handler=0x562f59c73d70, sa_mask=[HUP INT ILL TRAP ABRT BUS FPE USR1 SEGV USR2 PIPE ALRM TERM XCPU XFSZ VTALRM SYS], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGALRM, {sa_handler=0x562f59c73d70, sa_mask=[HUP INT ILL TRAP ABRT BUS FPE USR1 SEGV USR2 PIPE ALRM TERM XCPU XFSZ VTALRM SYS], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf640, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGWINCH, {sa_handler=0x562f59c733f0, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59ccf650, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 rt_sigaction(SIGINT, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 write(2, "exit\n", 5)            = 5
+248060 rt_sigaction(SIGINT, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, {sa_handler=0x562f59c73940, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f6145956d60}, 8) = 0
+248060 stat("/root/.bash_history", 0x7ffe2ad55ed0) = -1 ENOENT (没有那个文件或目录)
+248060 openat(AT_FDCWD, "/root/.bash_history", O_WRONLY|O_CREAT|O_TRUNC, 0600) = 3
+248060 close(3)                         = 0
+248060 stat("/root/.bash_history", {st_mode=S_IFREG|0600, st_size=0, ...}) = 0
+248060 openat(AT_FDCWD, "/root/.bash_history", O_WRONLY|O_APPEND) = 3
+248060 write(3, "/usr/local/bin/redis-server\n", 28) = 28
+248060 close(3)                         = 0
+248060 chown("/root/.bash_history", 0, 0) = 0
+248060 openat(AT_FDCWD, "/root/.bash_history", O_RDONLY) = 3
+248060 fstat(3, {st_mode=S_IFREG|0600, st_size=28, ...}) = 0
+248060 read(3, "/usr/local/bin/redis-server\n", 28) = 28
+248060 close(3)                         = 0
+248060 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+248060 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+248060 setpgid(0, 1)                    = -1 EPERM (不允许的操作)
+248060 exit_group(0)                    = ?
+248060 +++ exited with 0 +++
