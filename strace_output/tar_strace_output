@@ -1,0 +1,1040 @@
+177636 restart_syscall(<... resuming interrupted read ...>) = 1
+177636 read(0, "\33", 1)                = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "[", 1)                  = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "A", 1)                  = 1
+177636 writev(1, [{iov_base="\r/ # ls -l etc.tar.gz \33[J", iov_len=25}, {iov_base=NULL, iov_len=0}], 2) = 25
+177636 poll([{fd=0, events=POLLIN}], 1, -1) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "\33", 1)                = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "[", 1)                  = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "A", 1)                  = 1
+177636 writev(1, [{iov_base="\r/ # ls\33[J", iov_len=10}, {iov_base=NULL, iov_len=0}], 2) = 10
+177636 poll([{fd=0, events=POLLIN}], 1, -1) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "\33", 1)                = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "[", 1)                  = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "A", 1)                  = 1
+177636 writev(1, [{iov_base="\r/ # tar -czvf etc.tar.gz etc/\33["..., iov_len=33}, {iov_base=NULL, iov_len=0}], 2) = 33
+177636 poll([{fd=0, events=POLLIN}], 1, -1) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "\n", 1)                 = 1
+177636 writev(1, [{iov_base="", iov_len=0}, {iov_base="\n", iov_len=1}], 2) = 1
+177636 open("/root/.ash_history", O_WRONLY|O_CREAT|O_APPEND, 0600) = 3
+177636 lseek(3, 0, SEEK_END)            = 110
+177636 write(3, "tar -czvf etc.tar.gz etc/\n", 26) = 26
+177636 close(3)                         = 0
+177636 ioctl(0, SNDCTL_TMR_START or TCSETS, {B38400 opost isig icanon echo ...}) = 0
+177636 rt_sigaction(SIGWINCH, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fba402e40dd}, NULL, 8) = 0
+177636 rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+177636 fork( <unfinished ...>
+177814 gettid( <unfinished ...>
+177636 <... fork resumed>)              = 17
+177814 <... gettid resumed>)            = 17
+177814 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+177636 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+177814 <... rt_sigprocmask resumed>NULL, 8) = 0
+177814 getpid( <unfinished ...>
+177636 <... rt_sigprocmask resumed>NULL, 8) = 0
+177814 <... getpid resumed>)            = 17
+177814 setpgid(0, 17 <unfinished ...>
+177636 setpgid(17, 17 <unfinished ...>
+177814 <... setpgid resumed>)           = 0
+177636 <... setpgid resumed>)           = 0
+177814 ioctl(10, TIOCSPGRP, [17])       = 0
+177636 wait4(-1,  <unfinished ...>
+177814 rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7fba402e40dd}, NULL, 8) = 0
+177814 rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7fba402e40dd}, NULL, 8) = 0
+177814 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7fba402e40dd}, NULL, 8) = 0
+177814 rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7fba402e40dd}, NULL, 8) = 0
+177814 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7fba402e40dd}, NULL, 8) = 0
+177814 execve("/usr/bin/tar", ["tar", "-czvf", "etc.tar.gz", "etc/"], 0x7fba4052a348 /* 6 vars */) = 0
+177814 arch_prctl(ARCH_SET_FS, 0x7f9c0265fb88) = 0
+177814 set_tid_address(0x7f9c0265fbc0)  = 17
+177814 mprotect(0x7f9c0265c000, 4096, PROT_READ) = 0
+177814 mprotect(0x558e4ee5d000, 8192, PROT_READ) = 0
+177814 fcntl(0, F_GETFD)                = 0
+177814 fcntl(1, F_GETFD)                = 0
+177814 fcntl(2, F_GETFD)                = 0
+177814 rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f9c0241a0dd}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+177814 brk(NULL)                        = 0x558e5089d000
+177814 brk(0x558e5089f000)              = 0x558e5089f000
+177814 brk(0x558e508a3000)              = 0x558e508a3000
+177814 rt_sigaction(SIGPIPE, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f9c0241a0dd}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+177814 pipe([3, 4])                     = 0
+177814 rt_sigprocmask(SIG_BLOCK, ~[], [], 8) = 0
+177814 fork( <unfinished ...>
+177815 gettid( <unfinished ...>
+177814 <... fork resumed>)              = 18
+177815 <... gettid resumed>)            = 18
+177814 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+177815 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+177814 close(3 <unfinished ...>
+177815 <... rt_sigprocmask resumed>NULL, 8) = 0
+177814 <... close resumed>)             = 0
+177815 rt_sigaction(SIGPIPE, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f9c0241a0dd},  <unfinished ...>
+177814 fstat(4,  <unfinished ...>
+177815 <... rt_sigaction resumed>{sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f9c0241a0dd}, 8) = 0
+177814 <... fstat resumed>{st_mode=S_IFIFO|0600, st_size=0, ...}) = 0
+177815 close(0)                         = 0
+177814 newfstatat(AT_FDCWD, "etc",  <unfinished ...>
+177815 dup(3)                           = 0
+177814 <... newfstatat resumed>{st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177815 close(3 <unfinished ...>
+177814 openat(AT_FDCWD, "etc", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC <unfinished ...>
+177815 <... close resumed>)             = 0
+177815 close(4 <unfinished ...>
+177814 <... openat resumed>)            = 3
+177815 <... close resumed>)             = 0
+177814 fstat(3,  <unfinished ...>
+177815 stat("etc.tar.gz",  <unfinished ...>
+177814 <... fstat resumed>{st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177815 <... stat resumed>{st_mode=S_IFREG|0644, st_size=106889, ...}) = 0
+177814 fstat(3,  <unfinished ...>
+177815 open("etc.tar.gz", O_WRONLY|O_CREAT|O_TRUNC, 0666 <unfinished ...>
+177814 <... fstat resumed>{st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(3, F_SETFD, FD_CLOEXEC <unfinished ...>
+177815 <... open resumed>)              = 3
+177815 close(1 <unfinished ...>
+177814 <... fcntl resumed>)             = 0
+177815 <... close resumed>)             = 0
+177815 dup(3 <unfinished ...>
+177814 getdents64(3,  <unfinished ...>
+177815 <... dup resumed>)               = 1
+177815 close(3)                         = 0
+177815 execve("/bin/sh", ["/bin/sh", "-c", "gzip"], 0x7ffdb7129660 /* 6 vars */ <unfinished ...>
+177814 <... getdents64 resumed>0x558e5089e040 /* 38 entries */, 2048) = 1168
+177814 getdents64(3,  <unfinished ...>
+177815 <... execve resumed>)            = 0
+177814 <... getdents64 resumed>0x558e5089e040 /* 0 entries */, 2048) = 0
+177815 arch_prctl(ARCH_SET_FS, 0x7fa63ff19b88 <unfinished ...>
+177814 open("/etc/passwd", O_RDONLY|O_CLOEXEC <unfinished ...>
+177815 <... arch_prctl resumed>)        = 0
+177814 <... open resumed>)              = 5
+177815 set_tid_address(0x7fa63ff19bc0 <unfinished ...>
+177814 fcntl(5, F_SETFD, FD_CLOEXEC <unfinished ...>
+177815 <... set_tid_address resumed>)   = 18
+177814 <... fcntl resumed>)             = 0
+177815 mprotect(0x7fa63ff16000, 4096, PROT_READ <unfinished ...>
+177814 fcntl(5, F_SETFD, FD_CLOEXEC <unfinished ...>
+177815 <... mprotect resumed>)          = 0
+177814 <... fcntl resumed>)             = 0
+177815 mprotect(0x560f6aac0000, 16384, PROT_READ <unfinished ...>
+177814 readv(5,  <unfinished ...>
+177815 <... mprotect resumed>)          = 0
+177815 getuid()                         = 0
+177814 <... readv resumed>[{iov_base="", iov_len=0}, {iov_base="root:x:0:0:root:/root:/bin/ash\nb"..., iov_len=1024}], 2) = 1024
+177815 brk(NULL)                        = 0x560f6c4d4000
+177815 brk(0x560f6c4e5000 <unfinished ...>
+177814 lseek(5, -993, SEEK_CUR <unfinished ...>
+177815 <... brk resumed>)               = 0x560f6c4e5000
+177814 <... lseek resumed>)             = 31
+177815 getpid( <unfinished ...>
+177814 close(5 <unfinished ...>
+177815 <... getpid resumed>)            = 18
+177815 rt_sigprocmask(SIG_UNBLOCK, [RT_1 RT_2],  <unfinished ...>
+177814 <... close resumed>)             = 0
+177815 <... rt_sigprocmask resumed>NULL, 8) = 0
+177814 open("/etc/group", O_RDONLY|O_CLOEXEC <unfinished ...>
+177815 rt_sigaction(SIGCHLD, {sa_handler=0x560f6a843c96, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7fa63fcd40dd},  <unfinished ...>
+177814 <... open resumed>)              = 5
+177815 <... rt_sigaction resumed>NULL, 8) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC <unfinished ...>
+177815 rt_sigaction(SIGHUP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fa63fcd40dd},  <unfinished ...>
+177814 <... fcntl resumed>)             = 0
+177815 <... rt_sigaction resumed>{sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC <unfinished ...>
+177815 getppid( <unfinished ...>
+177814 <... fcntl resumed>)             = 0
+177815 <... getppid resumed>)           = 17
+177815 stat("/",  <unfinished ...>
+177814 readv(5,  <unfinished ...>
+177815 <... stat resumed>{st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 <... readv resumed>[{iov_base="", iov_len=0}, {iov_base="root:x:0:root\nbin:x:1:root,bin,d"..., iov_len=1024}], 2) = 697
+177815 stat(".",  <unfinished ...>
+177814 lseek(5, -683, SEEK_CUR <unfinished ...>
+177815 <... stat resumed>{st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 <... lseek resumed>)             = 14
+177815 rt_sigaction(SIGINT, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+177814 close(5 <unfinished ...>
+177815 rt_sigaction(SIGINT, {sa_handler=0x560f6a843c96, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7fa63fcd40dd},  <unfinished ...>
+177814 <... close resumed>)             = 0
+177815 <... rt_sigaction resumed>NULL, 8) = 0
+177814 ioctl(1, TIOCGWINSZ <unfinished ...>
+177815 rt_sigaction(SIGQUIT, NULL,  <unfinished ...>
+177814 <... ioctl resumed>, {ws_row=74, ws_col=118, ws_xpixel=0, ws_ypixel=0}) = 0
+177815 <... rt_sigaction resumed>{sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+177814 writev(1, [{iov_base="etc/", iov_len=4}, {iov_base="\n", iov_len=1}], 2 <unfinished ...>
+177815 rt_sigaction(SIGQUIT, {sa_handler=SIG_IGN, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7fa63fcd40dd}, NULL, 8) = 0
+177814 <... writev resumed>)            = 5
+177815 rt_sigaction(SIGTERM, NULL,  <unfinished ...>
+177814 newfstatat(3, "shells",  <unfinished ...>
+177815 <... rt_sigaction resumed>{sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+177814 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=38, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177815 rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7fa63fcd40dd}, NULL, 8) = 0
+177814 openat(3, "shells", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC <unfinished ...>
+177815 stat("/usr/local/sbin/gzip",  <unfinished ...>
+177814 <... openat resumed>)            = 5
+177815 <... stat resumed>0x7ffdd6698b58) = -1 ENOENT (没有那个文件或目录)
+177814 fstat(5,  <unfinished ...>
+177815 stat("/usr/local/bin/gzip",  <unfinished ...>
+177814 <... fstat resumed>{st_mode=S_IFREG|0644, st_size=38, ...}) = 0
+177815 <... stat resumed>0x7ffdd6698b58) = -1 ENOENT (没有那个文件或目录)
+177814 writev(1, [{iov_base="etc/shells", iov_len=10}, {iov_base="\n", iov_len=1}], 2 <unfinished ...>
+177815 stat("/usr/sbin/gzip",  <unfinished ...>
+177814 <... writev resumed>)            = 11
+177815 <... stat resumed>0x7ffdd6698b58) = -1 ENOENT (没有那个文件或目录)
+177814 read(5,  <unfinished ...>
+177815 stat("/usr/bin/gzip", 0x7ffdd6698b58) = -1 ENOENT (没有那个文件或目录)
+177814 <... read resumed>"# valid login shells\n/bin/sh\n/bi"..., 38) = 38
+177815 stat("/sbin/gzip",  <unfinished ...>
+177814 fstat(5,  <unfinished ...>
+177815 <... stat resumed>0x7ffdd6698b58) = -1 ENOENT (没有那个文件或目录)
+177814 <... fstat resumed>{st_mode=S_IFREG|0644, st_size=38, ...}) = 0
+177815 stat("/bin/gzip",  <unfinished ...>
+177814 close(5 <unfinished ...>
+177815 <... stat resumed>{st_mode=S_IFREG|0755, st_size=805024, ...}) = 0
+177814 <... close resumed>)             = 0
+177815 rt_sigprocmask(SIG_BLOCK, ~[],  <unfinished ...>
+177814 newfstatat(3, "inittab",  <unfinished ...>
+177815 <... rt_sigprocmask resumed>[], 8) = 0
+177814 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=570, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177815 fork( <unfinished ...>
+177814 openat(3, "inittab", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5,  <unfinished ...>
+177815 <... fork resumed>)              = 19
+177814 <... fstat resumed>{st_mode=S_IFREG|0644, st_size=570, ...}) = 0
+177815 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+177816 gettid( <unfinished ...>
+177815 <... rt_sigprocmask resumed>NULL, 8) = 0
+177814 writev(1, [{iov_base="etc/inittab", iov_len=11}, {iov_base="\n", iov_len=1}], 2 <unfinished ...>
+177816 <... gettid resumed>)            = 19
+177815 wait4(-1,  <unfinished ...>
+177814 <... writev resumed>)            = 12
+177816 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+177814 read(5,  <unfinished ...>
+177816 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1 RT_2], sa_flags=SA_RESTORER, sa_restorer=0x7fa63fcd40dd},  <unfinished ...>
+177814 <... read resumed>"# /etc/inittab\n\n::sysinit:/sbin/"..., 570) = 570
+177816 <... rt_sigaction resumed>NULL, 8) = 0
+177814 fstat(5,  <unfinished ...>
+177816 execve("/bin/gzip", ["gzip"], 0x7fa63ff1a268 /* 6 vars */ <unfinished ...>
+177814 <... fstat resumed>{st_mode=S_IFREG|0644, st_size=570, ...}) = 0
+177814 close(5 <unfinished ...>
+177816 <... execve resumed>)            = 0
+177814 <... close resumed>)             = 0
+177816 arch_prctl(ARCH_SET_FS, 0x7fdbbc46cb88 <unfinished ...>
+177814 newfstatat(3, "modprobe.d",  <unfinished ...>
+177816 <... arch_prctl resumed>)        = 0
+177816 set_tid_address(0x7fdbbc46cbc0 <unfinished ...>
+177814 <... newfstatat resumed>{st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177816 <... set_tid_address resumed>)   = 19
+177814 openat(3, "modprobe.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC <unfinished ...>
+177816 mprotect(0x7fdbbc469000, 4096, PROT_READ <unfinished ...>
+177814 <... openat resumed>)            = 5
+177816 <... mprotect resumed>)          = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177816 mprotect(0x565462cc0000, 16384, PROT_READ <unfinished ...>
+177814 fstat(5,  <unfinished ...>
+177816 <... mprotect resumed>)          = 0
+177814 <... fstat resumed>{st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177816 getuid( <unfinished ...>
+177814 fcntl(5, F_SETFD, FD_CLOEXEC <unfinished ...>
+177816 <... getuid resumed>)            = 0
+177816 brk(NULL <unfinished ...>
+177814 <... fcntl resumed>)             = 0
+177816 <... brk resumed>)               = 0x5654647dd000
+177814 getdents64(5,  <unfinished ...>
+177816 brk(0x5654647e0000 <unfinished ...>
+177814 <... getdents64 resumed>0x7f9c02660200 /* 6 entries */, 2048) = 184
+177816 <... brk resumed>)               = 0x5654647e0000
+177814 getdents64(5,  <unfinished ...>
+177816 brk(0x5654647e9000 <unfinished ...>
+177814 <... getdents64 resumed>0x7f9c02660200 /* 0 entries */, 2048) = 0
+177816 <... brk resumed>)               = 0x5654647e9000
+177816 brk(0x5654647ee000 <unfinished ...>
+177814 writev(1, [{iov_base="etc/modprobe.d/", iov_len=15}, {iov_base="\n", iov_len=1}], 2 <unfinished ...>
+177816 <... brk resumed>)               = 0x5654647ee000
+177814 <... writev resumed>)            = 16
+177816 brk(0x5654647ff000 <unfinished ...>
+177814 newfstatat(5, "aliases.conf",  <unfinished ...>
+177816 <... brk resumed>)               = 0x5654647ff000
+177814 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=1545, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177816 brk(0x565464810000 <unfinished ...>
+177814 openat(5, "aliases.conf", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC <unfinished ...>
+177816 <... brk resumed>)               = 0x565464810000
+177814 <... openat resumed>)            = 6
+177816 brk(0x565464831000 <unfinished ...>
+177814 fstat(6,  <unfinished ...>
+177816 <... brk resumed>)               = 0x565464831000
+177814 <... fstat resumed>{st_mode=S_IFREG|0644, st_size=1545, ...}) = 0
+177814 writev(1, [{iov_base="etc/modprobe.d/aliases.conf", iov_len=27}, {iov_base="\n", iov_len=1}], 2 <unfinished ...>
+177816 ioctl(0, TIOCGWINSZ, 0x7ffc8870bae0) = -1 ENOTTY (对设备不适当的 ioctl 操作)
+177814 <... writev resumed>)            = 28
+177816 read(0,  <unfinished ...>
+177814 read(6, "# Aliases to tell insmod/modprob"..., 1545) = 1545
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=1545, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "kms.conf", {st_mode=S_IFREG|0644, st_size=65, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "kms.conf", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=65, ...}) = 0
+177814 writev(1, [{iov_base="etc/modprobe.d/kms.conf", iov_len=23}, {iov_base="\n", iov_len=1}], 2) = 24
+177814 read(6, "# enable modeset\noptions radeon "..., 65) = 65
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=65, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "blacklist.conf", {st_mode=S_IFREG|0644, st_size=1979, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "blacklist.conf", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=1979, ...}) = 0
+177814 writev(1, [{iov_base="etc/modprobe.d/blacklist.conf", iov_len=29}, {iov_base="\n", iov_len=1}], 2) = 30
+177814 read(6, "#\n# Listing a module here preven"..., 1979) = 1979
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=1979, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "i386.conf", {st_mode=S_IFREG|0644, st_size=122, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "i386.conf", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=122, ...}) = 0
+177814 writev(1, [{iov_base="etc/modprobe.d/i386.conf", iov_len=24}, {iov_base="\n", iov_len=1}], 2) = 25
+177814 write(4, "etc/\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 10240 <unfinished ...>
+177816 <... read resumed>"etc/\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 65536) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "alias parport_lowlevel parport_p"..., 122) = 122
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=122, ...}) = 0
+177814 close(6)                         = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "mtab", {st_mode=S_IFLNK|0777, st_size=12, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 readlinkat(3, "mtab", "/proc/mounts", 13) = 12
+177814 writev(1, [{iov_base="etc/mtab", iov_len=8}, {iov_base="\n", iov_len=1}], 2) = 9
+177814 newfstatat(3, "modules-load.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "modules-load.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(5, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/modules-load.d/", iov_len=19}, {iov_base="\n", iov_len=1}], 2) = 20
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "hosts", {st_mode=S_IFREG|0644, st_size=174, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "hosts", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=174, ...}) = 0
+177814 writev(1, [{iov_base="etc/hosts", iov_len=9}, {iov_base="\n", iov_len=1}], 2) = 10
+177814 read(5, "127.0.0.1\tlocalhost\n::1\tlocalhos"..., 174) = 174
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=174, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "periodic", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "periodic", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x7f9c02660200 /* 7 entries */, 2048) = 208
+177814 getdents64(5, 0x7f9c02660200 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/periodic/", iov_len=13}, {iov_base="\n", iov_len=1}], 2) = 14
+177814 newfstatat(5, "weekly", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "weekly", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/periodic/weekly/", iov_len=20}, {iov_base="\n", iov_len=1}], 2) = 21
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "daily", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "daily", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/periodic/daily/", iov_len=19}, {iov_base="\n", iov_len=1}], 2) = 20
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "monthly", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "monthly", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/periodic/monthly/", iov_len=21}, {iov_base="\n", iov_len=1}], 2) = 22
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "15min", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "15min", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/periodic/15min/", iov_len=19}, {iov_base="\n", iov_len=1}], 2) = 20
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "hourly", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "hourly", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/periodic/hourly/", iov_len=20}, {iov_base="\n", iov_len=1}], 2) = 21
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "opt", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "opt", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(5, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/opt/", iov_len=8}, {iov_base="\n", iov_len=1}], 2) = 9
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "motd", {st_mode=S_IFREG|0644, st_size=282, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "motd", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=282, ...}) = 0
+177814 writev(1, [{iov_base="etc/motd", iov_len=8}, {iov_base="\n", iov_len=1}], 2) = 9
+177814 read(5, "Welcome to Alpine!\n\nThe Alpine W"..., 282) = 282
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=282, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "issue", {st_mode=S_IFREG|0644, st_size=53, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "issue", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=53, ...}) = 0
+177814 writev(1, [{iov_base="etc/issue", iov_len=9}, {iov_base="\n", iov_len=1}], 2) = 10
+177814 read(5, "Welcome to Alpine Linux 3.7\nKern"..., 53) = 53
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=53, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "group", {st_mode=S_IFREG|0644, st_size=697, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "group", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=697, ...}) = 0
+177814 writev(1, [{iov_base="etc/group", iov_len=9}, {iov_base="\n", iov_len=1}], 2) = 10
+177814 read(5, "root:x:0:root\nbin:x:1:root,bin,d"..., 697) = 697
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=697, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "profile.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "profile.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x7f9c02660200 /* 3 entries */, 2048) = 80
+177814 getdents64(5, 0x7f9c02660200 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/profile.d/", iov_len=14}, {iov_base="\n", iov_len=1}], 2) = 15
+177814 newfstatat(5, "color_prompt", {st_mode=S_IFREG|0644, st_size=295, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "color_prompt", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
+177814 write(4, "alias parport_lowlevel parport_p"..., 10240 <unfinished ...>
+177816 <... read resumed>"alias parport_lowlevel parport_p"..., 55296) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 writev(1, [{iov_base="etc/profile.d/color_prompt", iov_len=26}, {iov_base="\n", iov_len=1}], 2) = 27
+177814 read(6, "# Setup a red prompt for root an"..., 295) = 295
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=295, ...}) = 0
+177814 close(6)                         = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "fstab", {st_mode=S_IFREG|0644, st_size=89, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "fstab", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=89, ...}) = 0
+177814 writev(1, [{iov_base="etc/fstab", iov_len=9}, {iov_base="\n", iov_len=1}], 2) = 10
+177814 read(5, "/dev/cdrom\t/media/cdrom\tiso9660\t"..., 89) = 89
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=89, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "conf.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "conf.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(5, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/conf.d/", iov_len=11}, {iov_base="\n", iov_len=1}], 2) = 12
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "sysctl.conf", {st_mode=S_IFREG|0644, st_size=53, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "sysctl.conf", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=53, ...}) = 0
+177814 writev(1, [{iov_base="etc/sysctl.conf", iov_len=15}, {iov_base="\n", iov_len=1}], 2) = 16
+177814 read(5, "# content of this file will over"..., 53) = 53
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=53, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "ssl", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "ssl", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x7f9c02660200 /* 6 entries */, 2048) = 176
+177814 getdents64(5, 0x7f9c02660200 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/ssl/", iov_len=8}, {iov_base="\n", iov_len=1}], 2) = 9
+177814 newfstatat(5, "cert.pem", {st_mode=S_IFREG|0644, st_size=196928, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "cert.pem", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=196928, ...}) = 0
+177814 writev(1, [{iov_base="etc/ssl/cert.pem", iov_len=16}, {iov_base="\n", iov_len=1}], 2) = 17
+177814 read(6, "# $OpenBSD: cert.pem,v 1.15 2017"..., 5632) = 5632
+177814 write(4, "etc/profile.d/color_prompt\0\0\0\0\0\0"..., 10240 <unfinished ...>
+177816 <... read resumed>"etc/profile.d/color_prompt\0\0\0\0\0\0"..., 45056) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "ore: May 30 10:41:50 2000 GMT\n  "..., 10240) = 10240
+177814 write(4, "ore: May 30 10:41:50 2000 GMT\n  "..., 10240 <unfinished ...>
+177816 <... read resumed>"ore: May 30 10:41:50 2000 GMT\n  "..., 34816) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "\n        Version: 3 (0x2)\n      "..., 10240) = 10240
+177814 write(4, "\n        Version: 3 (0x2)\n      "..., 10240 <unfinished ...>
+177816 <... read resumed>"\n        Version: 3 (0x2)\n      "..., 24576) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "         X509v3 Basic Constraint"..., 10240) = 10240
+177814 write(4, "         X509v3 Basic Constraint"..., 10240 <unfinished ...>
+177816 <... read resumed>"         X509v3 Basic Constraint"..., 14336) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "3 Subject Key Identifier: \n     "..., 10240) = 10240
+177814 write(4, "3 Subject Key Identifier: \n     "..., 10240 <unfinished ...>
+177816 <... read resumed>"3 Subject Key Identifier: \n     "..., 4096) = 4096
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6,  <unfinished ...>
+177816 <... read resumed>"d8qVttevESRmCD1ycEvkvOl77DZypoEd"..., 32768) = 6144
+177814 <... read resumed>"Q8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwA"..., 10240) = 10240
+177816 read(0,  <unfinished ...>
+177814 write(4, "Q8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwA"..., 10240 <unfinished ...>
+177816 <... read resumed>"Q8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwA"..., 26624) = 10240
+177814 <... write resumed>)             = 10240
+177816 write(1, "\37\213\10\0\0\0\0\0\2\3\354<ks\333\266\262\371*\376\n\334\2703mo\"\213oI<7"..., 16384 <unfinished ...>
+177814 read(6,  <unfinished ...>
+177816 <... write resumed>)             = 16384
+177814 <... read resumed>"5:d9\n    Signature Algorithm: sh"..., 10240) = 10240
+177816 read(0,  <unfinished ...>
+177814 write(4, "5:d9\n    Signature Algorithm: sh"..., 10240 <unfinished ...>
+177816 <... read resumed>"5:d9\n    Signature Algorithm: sh"..., 16384) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "sage Period: \n                No"..., 10240) = 10240
+177814 write(4, "sage Period: \n                No"..., 10240 <unfinished ...>
+177816 <... read resumed>"sage Period: \n                No"..., 6144) = 6144
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6,  <unfinished ...>
+177816 <... read resumed>"bd4kdS8odhM+KhDtgPpTSEHCIjaWC9mO"..., 32768) = 4096
+177814 <... read resumed>"qhkiG9w0BAQUFADBY\nMQswCQYDVQQGEw"..., 10240) = 10240
+177816 read(0,  <unfinished ...>
+177814 write(4, "qhkiG9w0BAQUFADBY\nMQswCQYDVQQGEw"..., 10240 <unfinished ...>
+177816 <... read resumed>"qhkiG9w0BAQUFADBY\nMQswCQYDVQQGEw"..., 28672) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "G9w0BAQsFADCB\nmDELMAkGA1UEBhMCVV"..., 10240) = 10240
+177814 write(4, "G9w0BAQsFADCB\nmDELMAkGA1UEBhMCVV"..., 10240 <unfinished ...>
+177816 <... read resumed>"G9w0BAQsFADCB\nmDELMAkGA1UEBhMCVV"..., 18432) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "BB:3E:C7:42:C9:E3:81:D3:1E:F2:A4"..., 10240) = 10240
+177814 write(4, "BB:3E:C7:42:C9:E3:81:D3:1E:F2:A4"..., 10240 <unfinished ...>
+177816 <... read resumed>"BB:3E:C7:42:C9:E3:81:D3:1E:F2:A4"..., 8192) = 8192
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6,  <unfinished ...>
+177816 <... read resumed>"LlRhbsO6c8OtdHbDoW55a2lhZMOzayAo"..., 32768) = 2048
+177814 <... read resumed>"C:21:64:60:20:E5:DF:CE\nSHA256 Fi"..., 10240) = 10240
+177816 read(0,  <unfinished ...>
+177814 write(4, "C:21:64:60:20:E5:DF:CE\nSHA256 Fi"..., 10240 <unfinished ...>
+177816 <... read resumed>"C:21:64:60:20:E5:DF:CE\nSHA256 Fi"..., 30720) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "ToV7BjjHLPj4sHKNJeV3UvQDHEimUF+I"..., 10240) = 10240
+177814 write(4, "ToV7BjjHLPj4sHKNJeV3UvQDHEimUF+I"..., 10240 <unfinished ...>
+177816 <... read resumed>"ToV7BjjHLPj4sHKNJeV3UvQDHEimUF+I"..., 20480) = 10240
+177814 <... write resumed>)             = 10240
+177816 write(1, "\262#cMJ\206@M\360\346\326\273M\27\263\307D\220\355sR\37\305XnY\221\322\n\334\260v"..., 16384 <unfinished ...>
+177814 read(6,  <unfinished ...>
+177816 <... write resumed>)             = 16384
+177814 <... read resumed>"vOXrEql494liwTXCYhGHoG+NpGA7O+0d"..., 10240) = 10240
+177816 write(1, "\313\0\305g\271\337\261[\221\27\314\251\275\273\354\225U\30\270\322\345\224\347\353\271`_\310\5\313R/"..., 16384 <unfinished ...>
+177814 write(4, "vOXrEql494liwTXCYhGHoG+NpGA7O+0d"..., 10240 <unfinished ...>
+177816 <... write resumed>)             = 16384
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6,  <unfinished ...>
+177816 <... read resumed>"vOXrEql494liwTXCYhGHoG+NpGA7O+0d"..., 10240) = 10240
+177814 <... read resumed>"AB:2D:92:F4:FE:39:D4:E7:0F:0E\nSH"..., 10240) = 10240
+177816 read(0,  <unfinished ...>
+177814 write(4, "AB:2D:92:F4:FE:39:D4:E7:0F:0E\nSH"..., 10240 <unfinished ...>
+177816 <... read resumed>"AB:2D:92:F4:FE:39:D4:E7:0F:0E\nSH"..., 32768) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "gTGltaXRhdGlvbnMqIG9mIHRoZSBTdGF"..., 10240) = 10240
+177814 write(4, "gTGltaXRhdGlvbnMqIG9mIHRoZSBTdGF"..., 10240 <unfinished ...>
+177816 <... read resumed>"gTGltaXRhdGlvbnMqIG9mIHRoZSBTdGF"..., 22528) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "leSec GlobalRoot Class 3\n       "..., 10240) = 10240
+177814 write(4, "leSec GlobalRoot Class 3\n       "..., 10240 <unfinished ...>
+177816 <... read resumed>"leSec GlobalRoot Class 3\n       "..., 12288) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "IEdyb3VwLCBJbmMuMTEwLwYDVQQLEyhH"..., 10240) = 10240
+177814 write(4, "IEdyb3VwLCBJbmMuMTEwLwYDVQQLEyhH"..., 10240 <unfinished ...>
+177816 <... read resumed>"IEdyb3VwLCBJbmMuMTEwLwYDVQQLEyhH"..., 2048) = 2048
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6,  <unfinished ...>
+177816 <... read resumed>"cal\n                Certificate "..., 32768) = 8192
+177814 <... read resumed>"YDVQQKExJVbml6ZXRvIFNwLiB6IG8uby"..., 10240) = 10240
+177816 read(0,  <unfinished ...>
+177814 write(4, "YDVQQKExJVbml6ZXRvIFNwLiB6IG8uby"..., 10240 <unfinished ...>
+177816 <... read resumed>"YDVQQKExJVbml6ZXRvIFNwLiB6IG8uby"..., 24576) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "xW\nZXJpU2lnbiBDbGFzcyAzIFB1YmxpY"..., 6976) = 6976
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=196928, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "certs", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "certs", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/ssl/certs/", iov_len=14}, {iov_base="\n", iov_len=1}], 2) = 15
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "x509v3.cnf", {st_mode=S_IFREG|0644, st_size=1006, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "x509v3.cnf", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=1006, ...}) = 0
+177814 writev(1, [{iov_base="etc/ssl/x509v3.cnf", iov_len=18}, {iov_base="\n", iov_len=1}], 2) = 19
+177814 read(6, "# default settings\nCERTPATHLEN\t\t"..., 1006) = 1006
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=1006, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "openssl.cnf", {st_mode=S_IFREG|0644, st_size=745, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "openssl.cnf", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=745, ...}) = 0
+177814 writev(1, [{iov_base="etc/ssl/openssl.cnf", iov_len=19}, {iov_base="\n", iov_len=1}], 2) = 20
+177814 read(6, "[ req ]\n#default_bits\t\t= 2048\n#d"..., 512) = 512
+177814 write(4, "xW\nZXJpU2lnbiBDbGFzcyAzIFB1YmxpY"..., 10240 <unfinished ...>
+177816 <... read resumed>"xW\nZXJpU2lnbiBDbGFzcyAzIFB1YmxpY"..., 14336) = 10240
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 read(6, "on Name (eg, fully qualified hos"..., 233) = 233
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=745, ...}) = 0
+177814 close(6)                         = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "alpine-release", {st_mode=S_IFREG|0644, st_size=6, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "alpine-release", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=6, ...}) = 0
+177814 writev(1, [{iov_base="etc/alpine-release", iov_len=18}, {iov_base="\n", iov_len=1}], 2) = 19
+177814 read(5, "3.7.0\n", 6)            = 6
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=6, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "init.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "init.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(5, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/init.d/", iov_len=11}, {iov_base="\n", iov_len=1}], 2) = 12
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "TZ", {st_mode=S_IFREG|0644, st_size=4, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "TZ", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=4, ...}) = 0
+177814 writev(1, [{iov_base="etc/TZ", iov_len=6}, {iov_base="\n", iov_len=1}], 2) = 7
+177814 read(5, "UTC\n", 4)              = 4
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=4, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "protocols", {st_mode=S_IFREG|0644, st_size=1865, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "protocols", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=1865, ...}) = 0
+177814 writev(1, [{iov_base="etc/protocols", iov_len=13}, {iov_base="\n", iov_len=1}], 2) = 14
+177814 read(5, "# /etc/protocols:\n# $Id: protoco"..., 1865) = 1865
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=1865, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "shadow", {st_mode=S_IFREG|0640, st_size=440, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "shadow", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0640, st_size=440, ...}) = 0
+177814 open("/etc/group", O_RDONLY|O_CLOEXEC) = 6
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 readv(6, [{iov_base="", iov_len=0}, {iov_base="root:x:0:root\nbin:x:1:root,bin,d"..., iov_len=1024}], 2) = 697
+177814 lseek(6, -198, SEEK_CUR)         = 499
+177814 close(6)                         = 0
+177814 writev(1, [{iov_base="etc/shadow", iov_len=10}, {iov_base="\n", iov_len=1}], 2) = 11
+177814 read(5, "root:::0:::::\nbin:!::0:::::\ndaem"..., 440) = 440
+177814 fstat(5, {st_mode=S_IFREG|0640, st_size=440, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "logrotate.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "logrotate.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x558e4ee63120 /* 3 entries */, 2048) = 80
+177814 getdents64(5, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 open("/etc/group", O_RDONLY|O_CLOEXEC) = 6
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 readv(6, [{iov_base="", iov_len=0}, {iov_base="root:x:0:root\nbin:x:1:root,bin,d"..., iov_len=1024}], 2) = 697
+177814 lseek(6, -683, SEEK_CUR)         = 14
+177814 close(6)                         = 0
+177814 writev(1, [{iov_base="etc/logrotate.d/", iov_len=16}, {iov_base="\n", iov_len=1}], 2) = 17
+177814 newfstatat(5, "acpid", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "acpid", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=132, ...}) = 0
+177814 writev(1, [{iov_base="etc/logrotate.d/acpid", iov_len=21}, {iov_base="\n", iov_len=1}], 2) = 22
+177814 read(6, "/var/log/acpid.log {\n\tmissingok\n"..., 132) = 132
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=132, ...}) = 0
+177814 close(6)                         = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "network", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "network", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x7f9c02660200 /* 8 entries */, 2048) = 256
+177814 getdents64(5, 0x7f9c02660200 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/network/", iov_len=12}, {iov_base="\n", iov_len=1}], 2) = 13
+177814 newfstatat(5, "if-up.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "if-up.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 3 entries */, 2048) = 72
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/network/if-up.d/", iov_len=20}, {iov_base="\n", iov_len=1}], 2) = 21
+177814 newfstatat(6, "dad", {st_mode=S_IFREG|0775, st_size=160, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(6, "dad", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 7
+177814 fstat(7, {st_mode=S_IFREG|0775, st_size=160, ...}) = 0
+177814 writev(1, [{iov_base="etc/network/if-up.d/dad", iov_len=23}, {iov_base="\n", iov_len=1}], 2) = 24
+177814 read(7, "#!/bin/sh\n\n# Block ifup until DA"..., 160) = 160
+177814 fstat(7, {st_mode=S_IFREG|0775, st_size=160, ...}) = 0
+177814 close(7)                         = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "if-post-down.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "if-post-down.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 write(4, "on Name (eg, fully qualified hos"..., 10240 <unfinished ...>
+177816 <... read resumed>"on Name (eg, fully qualified hos"..., 4096) = 4096
+177814 <... write resumed>)             = 10240
+177816 read(0,  <unfinished ...>
+177814 writev(1, [{iov_base="etc/network/if-post-down.d/", iov_len=27}, {iov_base="\n", iov_len=1}], 2 <unfinished ...>
+177816 <... read resumed>" protocol\nipencap\t4\tIP-ENCAP\t# I"..., 32768) = 6144
+177816 read(0,  <unfinished ...>
+177814 <... writev resumed>)            = 28
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "if-pre-up.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "if-pre-up.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/network/if-pre-up.d/", iov_len=24}, {iov_base="\n", iov_len=1}], 2) = 25
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "if-down.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "if-down.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/network/if-down.d/", iov_len=22}, {iov_base="\n", iov_len=1}], 2) = 23
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "if-pre-down.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "if-pre-down.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/network/if-pre-down.d/", iov_len=26}, {iov_base="\n", iov_len=1}], 2) = 27
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "if-post-up.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "if-post-up.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x558e4ee63120 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/network/if-post-up.d/", iov_len=25}, {iov_base="\n", iov_len=1}], 2) = 26
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "apk", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "apk", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x558e4ee63120 /* 7 entries */, 2048) = 200
+177814 getdents64(5, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/apk/", iov_len=8}, {iov_base="\n", iov_len=1}], 2) = 9
+177814 newfstatat(5, "keys", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "keys", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x7f9c02660200 /* 5 entries */, 2048) = 264
+177814 getdents64(6, 0x7f9c02660200 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/apk/keys/", iov_len=13}, {iov_base="\n", iov_len=1}], 2) = 14
+177814 newfstatat(6, "alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub", {st_mode=S_IFREG|0644, st_size=451, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(6, "alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 7
+177814 fstat(7, {st_mode=S_IFREG|0644, st_size=451, ...}) = 0
+177814 writev(1, [{iov_base="etc/apk/keys/alpine-devel@lists."..., iov_len=64}, {iov_base="\n", iov_len=1}], 2) = 65
+177814 read(7, "-----BEGIN PUBLIC KEY-----\nMIIBI"..., 451) = 451
+177814 fstat(7, {st_mode=S_IFREG|0644, st_size=451, ...}) = 0
+177814 close(7)                         = 0
+177814 newfstatat(6, "alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub", {st_mode=S_IFREG|0644, st_size=451, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(6, "alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 7
+177814 fstat(7, {st_mode=S_IFREG|0644, st_size=451, ...}) = 0
+177814 writev(1, [{iov_base="etc/apk/keys/alpine-devel@lists."..., iov_len=64}, {iov_base="\n", iov_len=1}], 2) = 65
+177814 read(7, "-----BEGIN PUBLIC KEY-----\nMIIBI"..., 451) = 451
+177814 fstat(7, {st_mode=S_IFREG|0644, st_size=451, ...}) = 0
+177814 close(7)                         = 0
+177814 newfstatat(6, "alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub", {st_mode=S_IFREG|0644, st_size=451, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(6, "alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 7
+177814 fstat(7, {st_mode=S_IFREG|0644, st_size=451, ...}) = 0
+177814 writev(1, [{iov_base="etc/apk/keys/alpine-devel@lists."..., iov_len=64}, {iov_base="\n", iov_len=1}], 2) = 65
+177814 read(7, "-----BEGIN PUBLIC KEY-----\nMIIBI"..., 451) = 451
+177814 fstat(7, {st_mode=S_IFREG|0644, st_size=451, ...}) = 0
+177814 close(7)                         = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "protected_paths.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "protected_paths.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(6, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(6, 0x7f9c02660200 /* 2 entries */, 2048) = 48
+177814 getdents64(6, 0x7f9c02660200 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/apk/protected_paths.d/", iov_len=26}, {iov_base="\n", iov_len=1}], 2) = 27
+177814 fstat(6, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "world", {st_mode=S_IFREG|0644, st_size=72, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "world", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+177814 writev(1, [{iov_base="etc/apk/world", iov_len=13}, {iov_base="\n", iov_len=1}], 2) = 14
+177814 read(6, "alpine-baselayout\nalpine-keys\nap"..., 72) = 72
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "arch", {st_mode=S_IFREG|0644, st_size=7, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "arch", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=7, ...}) = 0
+177814 writev(1, [{iov_base="etc/apk/arch", iov_len=12}, {iov_base="\n", iov_len=1}], 2) = 13
+177814 read(6, "x86_64\n", 7)           = 7
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=7, ...}) = 0
+177814 close(6)                         = 0
+177814 newfstatat(5, "repositories", {st_mode=S_IFREG|0644, st_size=99, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "repositories", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=99, ...}) = 0
+177814 writev(1, [{iov_base="etc/apk/repositories", iov_len=20}, {iov_base="\n", iov_len=1}], 2) = 21
+177814 read(6, "http://dl-cdn.alpinelinux.org/al"..., 99) = 99
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=99, ...}) = 0
+177814 close(6)                         = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "sysctl.d", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "sysctl.d", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x7f9c02660200 /* 3 entries */, 2048) = 88
+177814 getdents64(5, 0x7f9c02660200 /* 0 entries */, 2048) = 0
+177814 write(4, "etc/network/if-post-down.d/\0\0\0\0\0"..., 10240) = 10240
+177816 <... read resumed>"etc/network/if-post-down.d/\0\0\0\0\0"..., 26624) = 10240
+177814 writev(1, [{iov_base="etc/sysctl.d/", iov_len=13}, {iov_base="\n", iov_len=1}], 2 <unfinished ...>
+177816 write(1, "\340E|\276\214\330\3643\4\264\236\215\27\245\305B\24E]\364Y\372{\177\205\261\240\337\367\257\2\344"..., 16384 <unfinished ...>
+177814 <... writev resumed>)            = 14
+177816 <... write resumed>)             = 16384
+177814 newfstatat(5, "00-alpine.conf",  <unfinished ...>
+177816 write(1, "S\306LX\371\340\335\377\267\347\207\376\337\37\365\364\327N\361\261\222\334\2170:>\221\367\215\177]/"..., 16384 <unfinished ...>
+177814 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=151, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177816 <... write resumed>)             = 16384
+177814 openat(5, "00-alpine.conf", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC <unfinished ...>
+177816 read(0,  <unfinished ...>
+177814 <... openat resumed>)            = 6
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=151, ...}) = 0
+177814 writev(1, [{iov_base="etc/sysctl.d/00-alpine.conf", iov_len=27}, {iov_base="\n", iov_len=1}], 2) = 28
+177814 read(6, "net.ipv4.tcp_syncookies = 1\nnet."..., 151) = 151
+177814 fstat(6, {st_mode=S_IFREG|0644, st_size=151, ...}) = 0
+177814 close(6)                         = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "passwd", {st_mode=S_IFREG|0644, st_size=1224, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "passwd", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=1224, ...}) = 0
+177814 writev(1, [{iov_base="etc/passwd", iov_len=10}, {iov_base="\n", iov_len=1}], 2) = 11
+177814 read(5, "root:x:0:0:root:/root:/bin/ash\nb"..., 1224) = 1224
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=1224, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "crontabs", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "crontabs", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 fcntl(5, F_SETFD, FD_CLOEXEC)    = 0
+177814 getdents64(5, 0x558e4ee63120 /* 3 entries */, 2048) = 72
+177814 getdents64(5, 0x558e4ee63120 /* 0 entries */, 2048) = 0
+177814 writev(1, [{iov_base="etc/crontabs/", iov_len=13}, {iov_base="\n", iov_len=1}], 2) = 14
+177814 newfstatat(5, "root", {st_mode=S_IFREG|0600, st_size=283, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(5, "root", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 6
+177814 fstat(6, {st_mode=S_IFREG|0600, st_size=283, ...}) = 0
+177814 writev(1, [{iov_base="etc/crontabs/root", iov_len=17}, {iov_base="\n", iov_len=1}], 2) = 18
+177814 read(6, "# do daily/weekly/monthly mainte"..., 283) = 283
+177814 fstat(6, {st_mode=S_IFREG|0600, st_size=283, ...}) = 0
+177814 close(6)                         = 0
+177814 fstat(5, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "hostname", {st_mode=S_IFREG|0644, st_size=13, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "hostname", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=13, ...}) = 0
+177814 writev(1, [{iov_base="etc/hostname", iov_len=12}, {iov_base="\n", iov_len=1}], 2) = 13
+177814 read(5, "bcd07dcb3217\n", 13)    = 13
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=13, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "modules", {st_mode=S_IFREG|0644, st_size=10, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "modules", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=10, ...}) = 0
+177814 writev(1, [{iov_base="etc/modules", iov_len=11}, {iov_base="\n", iov_len=1}], 2) = 12
+177814 read(5, "af_packet\n", 10)       = 10
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=10, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "securetty", {st_mode=S_IFREG|0644, st_size=65, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "securetty", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=65, ...}) = 0
+177814 writev(1, [{iov_base="etc/securetty", iov_len=13}, {iov_base="\n", iov_len=1}], 2) = 14
+177814 read(5, "console\ntty1\ntty2\ntty3\ntty4\ntty5"..., 65) = 65
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=65, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "os-release", {st_mode=S_IFREG|0644, st_size=158, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "os-release", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=158, ...}) = 0
+177814 writev(1, [{iov_base="etc/os-release", iov_len=14}, {iov_base="\n", iov_len=1}], 2) = 15
+177814 read(5, "NAME=\"Alpine Linux\"\nID=alpine\nVE"..., 158) = 158
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=158, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "localtime", {st_mode=S_IFREG|0644, st_size=127, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "localtime", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=127, ...}) = 0
+177814 writev(1, [{iov_base="etc/localtime", iov_len=13}, {iov_base="\n", iov_len=1}], 2) = 14
+177814 read(5, "TZif2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\0\0\1\0\0\0\0"..., 127) = 127
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=127, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "udhcpd.conf", {st_mode=S_IFREG|0644, st_size=4138, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "udhcpd.conf", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=4138, ...}) = 0
+177814 write(4, "etc/sysctl.d/\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 10240) = 10240
+177816 <... read resumed>"etc/sysctl.d/\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 16384) = 10240
+177814 writev(1, [{iov_base="etc/udhcpd.conf", iov_len=15}, {iov_base="\n", iov_len=1}], 2) = 16
+177814 read(5, "# Sample udhcpd configuration fi"..., 4138) = 4138
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=4138, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "services", {st_mode=S_IFREG|0644, st_size=36141, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "services", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC <unfinished ...>
+177816 read(0,  <unfinished ...>
+177814 <... openat resumed>)            = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=36141, ...}) = 0
+177814 writev(1, [{iov_base="etc/services", iov_len=12}, {iov_base="\n", iov_len=1}], 2) = 13
+177814 read(5, "# /etc/services\n#\n# Network serv"..., 4608) = 4608
+177814 write(4, "etc/udhcpd.conf\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 10240) = 10240
+177816 <... read resumed>"etc/udhcpd.conf\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 6144) = 6144
+177814 read(5, "Focus Cobol\nmfcobol\t\t86/udp\n# pr"..., 10240) = 10240
+177814 write(4, "Focus Cobol\nmfcobol\t\t86/udp\n# pr"..., 10240) = 10240
+177814 read(5, "adnews\nnetnews\t\t532/udp\t\treadnew"..., 10240) = 10240
+177814 write(4, "adnews\nnetnews\t\t532/udp\t\treadnew"..., 10240) = 10240
+177814 read(5, "p\tospf6d\nconnection\t2607/tcp\t\t\t#"..., 10240) = 10240
+177814 write(4, "p\tospf6d\nconnection\t2607/tcp\t\t\t#"..., 10240) = 10240
+177816 read(0,  <unfinished ...>
+177814 read(5, "ssh-offset\nx11-ssh\t\t6010/udp\tx11"..., 813) = 813
+177816 <... read resumed>"e services(5) for more info.\n#\n\n"..., 32768) = 32768
+177816 read(0,  <unfinished ...>
+177814 fstat(5,  <unfinished ...>
+177816 <... read resumed>"udp\nbpcd\t\t13782/tcp\t\t\t# VERITAS "..., 32768) = 2048
+177814 <... fstat resumed>{st_mode=S_IFREG|0644, st_size=36141, ...}) = 0
+177816 read(0,  <unfinished ...>
+177814 close(5)                         = 0
+177814 newfstatat(3, "profile", {st_mode=S_IFREG|0644, st_size=259, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "profile", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=259, ...}) = 0
+177814 writev(1, [{iov_base="etc/profile", iov_len=11}, {iov_base="\n", iov_len=1}], 2) = 12
+177814 read(5, "export CHARSET=UTF-8\nexport PATH"..., 259) = 259
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=259, ...}) = 0
+177814 close(5)                         = 0
+177814 newfstatat(3, "resolv.conf", {st_mode=S_IFREG|0644, st_size=798, ...}, AT_SYMLINK_NOFOLLOW) = 0
+177814 openat(3, "resolv.conf", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW|O_CLOEXEC) = 5
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=798, ...}) = 0
+177814 writev(1, [{iov_base="etc/resolv.conf", iov_len=15}, {iov_base="\n", iov_len=1}], 2) = 16
+177814 read(5, "# This is /run/systemd/resolve/r"..., 798) = 798
+177814 fstat(5, {st_mode=S_IFREG|0644, st_size=798, ...}) = 0
+177814 close(5)                         = 0
+177814 fstat(3, {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+177814 close(3)                         = 0
+177814 write(4, "ssh-offset\nx11-ssh\t\t6010/udp\tx11"..., 10240) = 10240
+177816 <... read resumed>"ssh-offset\nx11-ssh\t\t6010/udp\tx11"..., 30720) = 10240
+177814 close(4 <unfinished ...>
+177816 read(0,  <unfinished ...>
+177814 <... close resumed>)             = 0
+177816 <... read resumed>"", 20480)     = 0
+177814 wait4(18,  <unfinished ...>
+177816 write(1, "[\204\263\202\217x;\266\256\327<\350\312{\250\"\334\254\351\314}u\350<\375\320.%\16Z/n"..., 16384) = 16384
+177816 write(1, "q\311\372m[\6\337\314ng\24\25\3536+U:\377\265\332\246i\274\6X\333Q\250\247\336\234\32"..., 8585) = 8585
+177816 close(1)                         = 0
+177816 exit_group(0)                    = ?
+177816 +++ exited with 0 +++
+177815 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 19
+177815 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=19, si_uid=0, si_status=0, si_utime=0, si_stime=1} ---
+177815 rt_sigreturn({mask=[]})          = 19
+177815 exit_group(0)                    = ?
+177815 +++ exited with 0 +++
+177814 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18
+177814 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=18, si_uid=0, si_status=0, si_utime=0, si_stime=1} ---
+177814 close(1)                         = 0
+177814 close(2)                         = 0
+177814 exit_group(0)                    = ?
+177814 +++ exited with 0 +++
+177636 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WSTOPPED, NULL) = 17
+177636 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=17, si_uid=0, si_status=0, si_utime=0, si_stime=7} ---
+177636 rt_sigreturn({mask=[]})          = 17
+177636 ioctl(10, TIOCSPGRP, [1])        = 0
+177636 wait4(-1, 0x7ffe3661647c, WNOHANG|WSTOPPED, NULL) = -1 ECHILD (没有子进程)
+177636 stat("MAILPATH", 0x7ffe366165f8) = -1 ENOENT (没有那个文件或目录)
+177636 ioctl(0, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+177636 ioctl(0, SNDCTL_TMR_START or TCSETS, {B38400 opost -isig -icanon -echo ...}) = 0
+177636 geteuid()                        = 0
+177636 open("/etc/passwd", O_RDONLY|O_CLOEXEC) = 3
+177636 fcntl(3, F_SETFD, FD_CLOEXEC)    = 0
+177636 fcntl(3, F_SETFD, FD_CLOEXEC)    = 0
+177636 readv(3, [{iov_base="", iov_len=0}, {iov_base="root:x:0:0:root:/root:/bin/ash\nb"..., iov_len=1024}], 2) = 1024
+177636 lseek(3, -993, SEEK_CUR)         = 31
+177636 close(3)                         = 0
+177636 getcwd("/", 192)                 = 2
+177636 geteuid()                        = 0
+177636 poll([{fd=0, events=POLLIN}], 1, 0) = 0 (Timeout)
+177636 writev(1, [{iov_base="/ # \33[6n", iov_len=8}, {iov_base=NULL, iov_len=0}], 2) = 8
+177636 rt_sigaction(SIGWINCH, {sa_handler=0x55e11f09ab53, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fba402e40dd}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fba402e40dd}, 8) = 0
+177636 ioctl(0, TIOCGWINSZ, {ws_row=74, ws_col=118, ws_xpixel=0, ws_ypixel=0}) = 0
+177636 poll([{fd=0, events=POLLIN}], 1, -1) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "\33", 1)                = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "[", 1)                  = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "7", 1)                  = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "4", 1)                  = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, ";", 1)                  = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "5", 1)                  = 1
+177636 poll([{fd=0, events=POLLIN}], 1, 50) = 1 ([{fd=0, revents=POLLIN}])
+177636 read(0, "R", 1)                  = 1
+177636 poll([{fd=0, events=POLLIN}], 1, -1 <detached ...>
